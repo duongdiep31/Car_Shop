@@ -1,0 +1,83 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "products": [
+    {
+      "id": 1,
+      "name": "Phanh Đĩa",
+      "price": 2000000,
+      "image": "http://localhost:8080/src/assets/images/shop/grid/1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Đèn Pha",
+      "price": 6000000,
+      "image": "http://localhost:8080/src/assets/images/shop/grid/4.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Gương",
+      "price": 10000000,
+      "image": "http://localhost:8080/src/assets/images/shop/grid/6.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Lốp Xe",
+      "price": 3000000,
+      "image": "http://localhost:8080/src/assets/images/shop/grid/4.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Vành Xe",
+      "price": 20000000,
+      "image": "http://localhost:8080/src/assets/images/shop/grid/4.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Nắp Capo",
+      "price": 10000000,
+      "image": "http://localhost:8080/src/assets/images/shop/grid/4.jpg"
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "opel"
+    },
+    {
+      "id": 2,
+      "name": "Subaru"
+    },
+    {
+      "id": 3,
+      "name": "Toyota"
+    },
+    {
+      "id": 4,
+      "name": "Audi"
+    },
+    {
+      "id": 5,
+      "name": "Honda"
+    },
+    {
+      "id": 6,
+      "name": "Cheverlet"
+    }
+  ]
+}
