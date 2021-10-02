@@ -1,9 +1,10 @@
+import categorycomponent from "../component/category";
 import category from "../component/category";
 const product = {
     async render() {
         const response = await fetch("http://localhost:3000/products")
         const data = await response.json();
-        const product = data.map(item => {
+        const products = data.map(item => {
             const nf = Intl.NumberFormat();
             const coin = item.price;
             return /*html*/ `
@@ -40,6 +41,7 @@ const product = {
                     `
         }).join("")
 
+
         return /*html*/ `<section id="page-title" class="page-title">
         <div class="container">
             <div class="row">
@@ -68,8 +70,17 @@ const product = {
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-3 sidebar">
 
-                        ${console.log(category.render())}            
-        
+                            <div class="widget widget-categories">
+                            <div class="widget-title">
+                                <h5>categories</h5>
+                            </div>
+                            <div class="widget-content">
+                                <ul class="list-unstyled">
+                                    
+                                    ${categorycomponent.render()}
+                                </ul>
+                            </div>        
+                        </div>
 
                      <div class="widget widget-recent-products">
                         <div class="widget-title">
@@ -300,10 +311,9 @@ const product = {
 
 
 
-                        
+                        ${products}
 
 
-                        ${product}
 
 
                      

@@ -1,26 +1,13 @@
 import { instance } from "../api/instance"
-const category = {
+const categorycomponent = {
     async render() {
-        const respone = await fetch("http://localhost:3000/category")
-        const data = await respone.json()
-        const cate = data.map(item => {
-            return /*html*/ `        <a href="#"><i class="fa fa-angle-double-right"></i>${item.name}<span>(5)</span></a>
-            `
-        }).join("")
+        const url = "/category"
+        const { data } = instance.get(url)
 
-        return /*html*/ `<div class="widget widget-categories">
-            <div class="widget-title">
-                <h5>categories</h5>
-            </div>
-            <div class="widget-content">
-                <ul class="list-unstyled">
-                    
-                    ${cate}
-
-                 
-                </ul>
-            </div>`
+        return /*html*/ `  <li>
+        <a href="#"><i class="fa fa-angle-double-right"></i>${data}<span>(77)</span></a>
+    </li> `
     }
 
 }
-export default category
+export default categorycomponent
