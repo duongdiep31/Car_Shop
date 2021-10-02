@@ -1,3 +1,4 @@
+import { $ } from "../utils"
 const header = {
     render() {
         return /*html*/ `<div class="top-bar">
@@ -60,12 +61,12 @@ const header = {
 
             <div class="collapse navbar-collapse pull-right" id="header-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
-                    <li class="has-dropdown active">
+                    <li class="has-dropdown ">
                         <a href="" data-toggle="dropdown" class="dropdown-toggle">Home</a>
                        
                     </li>
 
-                    <li class="has-dropdown">
+                    <li class="has-dropdown  ">
                         <a href="/products" data-toggle="dropdown" class="dropdown-toggle">shop</a>
                         
                     </li>
@@ -78,17 +79,7 @@ const header = {
 
                     <li class="has-dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">blog</a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="blog-grid.html">blog grid</a>
-                            </li>
-                            <li>
-                                <a href="blog-standard.html">blog standard</a>
-                            </li>
-                            <li>
-                                <a href="blog-single.html">blog single</a>
-                            </li>
-                        </ul>
+                        
                     </li>
                     <li class="has-dropdown pull-left">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">contact</a>
@@ -174,6 +165,10 @@ const header = {
         </div>
 
     </nav>`
+    },
+    afterRender() {
+        console.log(1);
     }
 }
+
 export default header

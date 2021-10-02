@@ -1,3 +1,4 @@
+import category from "../component/category";
 const product = {
     async render() {
         const response = await fetch("http://localhost:3000/products")
@@ -67,36 +68,10 @@ const product = {
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-3 sidebar">
 
-                    <div class="widget widget-categories">
-                        <div class="widget-title">
-                            <h5>categories</h5>
-                        </div>
-                        <div class="widget-content">
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a href="#"><i class="fa fa-angle-double-right"></i>opel<span>(5)</span></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-angle-double-right"></i>Subaru<span>(77)</span></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-angle-double-right"></i>BMW<span>(6)</span></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-angle-double-right"></i>Toyota<span>(11)</span></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-angle-double-right"></i>Audi<span>(54)</span></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-angle-double-right"></i>Chevrolet<span>(22)</span></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                        ${console.log(category.render())}            
+        
 
-
-                    <div class="widget widget-recent-products">
+                     <div class="widget widget-recent-products">
                         <div class="widget-title">
                             <h5>Recent Items</h5>
                         </div>
@@ -143,6 +118,10 @@ const product = {
                         </div>
 
                     </div>
+
+
+
+
 
 
                     <div class="widget widget-filter">

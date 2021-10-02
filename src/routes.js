@@ -8,13 +8,14 @@ import productdetails from "./page/product-details";
 const router = new Navigo("/", { hash: true, linksSelector: "a" });
 const render = async(page, afterRender) => {
 
-    $('header').innerHTML = header.render();
+    $('header').innerHTML = header.render(), header.afterRender;
+
     $('#container').innerHTML = await page;
+
+    $('#footer').innerHTML = footer.render();
     if (afterRender) {
         await afterRender();
     }
-    $('#footer').innerHTML = footer.render();
-
 }
 
 const routes = () => {
