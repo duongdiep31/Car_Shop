@@ -1,45 +1,9 @@
-import categorycomponent from "../component/category";
-import category from "../component/category";
+import CBrands from "../component/brands";
+import categorycomponent from "../component/categories/category";
+import CProduct from "../component/productscomponent";
+import productscomponent from "../component/productscomponent";
 const product = {
     async render() {
-        const response = await fetch("http://localhost:3000/products")
-        const data = await response.json();
-        const products = data.map(item => {
-            const nf = Intl.NumberFormat();
-            const coin = item.price;
-            return /*html*/ `
-            <div class="col-xs-12 col-sm-6 col-md-4 product">
-                <div class="product-img">
-                    <img src="${item.image}" alt="Product" />
-                    <div class="product-hover">
-                        <div class="product-action">
-                            <a class="btn btn-primary" href="#">Add To Cart</a>
-                            <a class="btn btn-primary" href="#/products/${item.id}">Item Details</a>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="product-bio">
-                    <div class="prodcut-cat">
-                        <a href="#">Toyota</a>
-                    </div>
-
-                    <div class="prodcut-title">
-                        <h3>
-                            <a href="#">${item.name}</a>
-                        </h3>
-                    </div>
-
-                    <div class="product-price">
-                        <span class="symbole">${nf.format(coin)} VND </span>
-                    </div>
-
-                </div>
-
-            </div>
-                    `
-        }).join("")
 
 
         return /*html*/ `<section id="page-title" class="page-title">
@@ -77,7 +41,7 @@ const product = {
                             <div class="widget-content">
                                 <ul class="list-unstyled">
                                     
-                                    ${categorycomponent.render()}
+                                    ${ await categorycomponent.render()}
                                 </ul>
                             </div>        
                         </div>
@@ -150,45 +114,7 @@ const product = {
                     </div>
 
 
-                    <div class="widget widget-brands">
-                        <div class="widget-title">
-                            <h5>Brands</h5>
-                        </div>
-                        <div class="widget-content">
-                            <form>
-
-                                <div class="check-option">
-                                    <input type="checkbox" class="checkbox-style" name="brands" id="Opel" value="Opel">
-                                    <label for="Opel" class="checkbox-label">Opel <span>(5)</span></label>
-                                </div>
-
-                                <div class="check-option">
-                                    <input type="checkbox" class="checkbox-style" name="brands" id="Subaru" value="Subaru">
-                                    <label for="Subaru" class="checkbox-label">Subaru <span>(77)</span></label>
-                                </div>
-
-                                <div class="check-option">
-                                    <input type="checkbox" class="checkbox-style" name="brands" id="BMW" value="BMW">
-                                    <label for="BMW" class="checkbox-label">BMW <span>(16)</span></label>
-                                </div>
-
-                                <div class="check-option">
-                                    <input type="checkbox" class="checkbox-style" name="brands" id="Toyota" value="Toyota">
-                                    <label for="Toyota" class="checkbox-label">Toyota <span>(11)</span></label>
-                                </div>
-
-                                <div class="check-option">
-                                    <input type="checkbox" class="checkbox-style" name="brands" id="Audi" value="Audi">
-                                    <label for="Audi" class="checkbox-label">Audi <span>(54)</span></label>
-                                </div>
-
-                                <div class="check-option">
-                                    <input type="checkbox" class="checkbox-style" name="brands" id="Chevrolet" value="Chevrolet">
-                                    <label for="Chevrolet" class="checkbox-label">Chevrolet <span>(22)</span></label>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                    ${CBrands.render()}
 
 
                     <div class="widget widget-recent-products">
@@ -308,18 +234,7 @@ const product = {
                     </div>
 
                     <div class="row">
-
-
-
-                        ${products}
-
-
-
-
-                     
-
-                        
-
+                        ${await CProduct.render()}
                     </div>
 
                     <div class="row">

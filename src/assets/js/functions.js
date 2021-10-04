@@ -2,10 +2,12 @@
     "use strict";
     var $dropToggle = $("ul.dropdown-menu [data-toggle=dropdown]"),
         $module = $(".module");
-    $dropToggle.on("click", function(event) { event.preventDefault();
+    $dropToggle.on("click", function(event) {
+        event.preventDefault();
         event.stopPropagation();
         $(this).parent().siblings().removeClass("open");
-        $(this).parent().toggleClass("open"); });
+        $(this).parent().toggleClass("open");
+    });
     $module.click(function() { $(this).toggleClass("toggle-module"); });
     $module.find("input.form-control", ".btn", ".cancel").click(function(e) { e.stopPropagation(); });
     var $navAffix = $(".header nav");
@@ -13,18 +15,27 @@
     var $bgSection = $(".bg-section");
     var $bgPattern = $(".bg-pattern");
     var $colBg = $(".col-bg");
-    $bgSection.each(function() { var bgSrc = $(this).children("img").attr("src"); var bgUrl = 'url(' + bgSrc + ')';
+    $bgSection.each(function() {
+        var bgSrc = $(this).children("img").attr("src");
+        var bgUrl = 'url(' + bgSrc + ')';
         $(this).parent().css("backgroundImage", bgUrl);
         $(this).parent().addClass("bg-section");
-        $(this).remove(); });
-    $bgPattern.each(function() { var bgSrc = $(this).children("img").attr("src"); var bgUrl = 'url(' + bgSrc + ')';
+        $(this).remove();
+    });
+    $bgPattern.each(function() {
+        var bgSrc = $(this).children("img").attr("src");
+        var bgUrl = 'url(' + bgSrc + ')';
         $(this).parent().css("backgroundImage", bgUrl);
         $(this).parent().addClass("bg-pattern");
-        $(this).remove(); });
-    $colBg.each(function() { var bgSrc = $(this).children("img").attr("src"); var bgUrl = 'url(' + bgSrc + ')';
+        $(this).remove();
+    });
+    $colBg.each(function() {
+        var bgSrc = $(this).children("img").attr("src");
+        var bgUrl = 'url(' + bgSrc + ')';
         $(this).parent().css("backgroundImage", bgUrl);
         $(this).parent().addClass("col-bg");
-        $(this).remove(); });
+        $(this).remove();
+    });
     $('.popup-video,.popup-gmaps').magnificPopup({
         disableOn: 700,
         mainClass: 'mfp-fade',
@@ -57,8 +68,10 @@
             var n = 0;
             var element = document.getElementById('twitter-feed');
             var html = '<ul class="list-unstyled mb-0">';
-            while (n < x) { html += '<li>' + tweets[n] + '</li>';
-                n++; }
+            while (n < x) {
+                html += '<li>' + tweets[n] + '</li>';
+                n++;
+            }
             html += '</ul>';
             element.innerHTML = html;
         }
