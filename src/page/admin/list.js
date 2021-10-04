@@ -11,7 +11,7 @@ const productManagerPage = {
             <th scope="row">${item.id}</th>
             <td>${item.name}</td>
             <td>${item.price}</td>
-            <td>    <img src="${item.image}" alt="">
+            <td><img src="${item.image}" alt="">
             </td>
           </tr>`
         }).join("")

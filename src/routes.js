@@ -20,6 +20,8 @@ const render = async(page, afterRender) => {
     }
 }
 
+
+
 const renderadmin = async(page) => {
 
     $('#container').innerHTML = await page;
