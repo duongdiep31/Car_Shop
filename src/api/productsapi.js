@@ -18,7 +18,7 @@ export const remove = (id) => {
     return instance.delete(url)
 }
 export const add = (product) => {
-    const url = `/products/${id}`;
+    const url = `/products/`;
     return instance.post(url, product)
 }
 export const update = (id, product) => {

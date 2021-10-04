@@ -1,77 +1,66 @@
 {
-
-    "products": [{
-            "id": 1,
-            "cate": 1,
-            "name": "Phanh Đĩa",
-            "price": 2000000,
-            "image": "http://localhost:8080/src/assets/images/shop/grid/1.jpg"
-        },
-        {
-            "id": 2,
-            "cate": 2,
-
-            "name": "Đèn Pha",
-            "price": 6000000,
-            "image": "http://localhost:8080/src/assets/images/shop/grid/4.jpg"
-        },
-        {
-            "id": 3,
-            "cate": 5,
-
-            "name": "Gương",
-            "price": 10000000,
-            "image": "http://localhost:8080/src/assets/images/shop/grid/6.jpg"
-        },
-        {
-            "id": 4,
-            "cate": 1,
-
-            "name": "Lốp Xe",
-            "price": 3000000,
-            "image": "http://localhost:8080/src/assets/images/shop/grid/4.jpg"
-        },
-        {
-            "id": 6,
-            "cate": 2,
-
-            "name": "Vành Xe",
-            "price": 20000000,
-            "image": "http://localhost:8080/src/assets/images/shop/grid/4.jpg"
-        },
-        {
-            "id": 7,
-            "cate": 4,
-
-            "name": "Nắp Capo",
-            "price": 10000000,
-            "image": "http://localhost:8080/src/assets/images/shop/grid/4.jpg"
-        }
-    ],
-    "categories": [{
-            "id": 1,
-            "name": "opel"
-        },
-        {
-            "id": 2,
-            "name": "Subaru"
-        },
-        {
-            "id": 3,
-            "name": "Toyota"
-        },
-        {
-            "id": 4,
-            "name": "Audi"
-        },
-        {
-            "id": 5,
-            "name": "Honda"
-        },
-        {
-            "id": 6,
-            "name": "Cheverlet"
-        }
-    ],
-    "user": []
+  "products": [
+    {
+      "id": 6,
+      "cate": "2",
+      "name": "Đèn Phaaaâaa",
+      "price": "60000000022",
+      "image": "http://localhost:8080/src/assets/images/shop/grid/4.jpg"
+    },
+    {
+      "id": 21,
+      "cate": "2",
+      "name": "Đèn Phaaas",
+      "price": "6000000",
+      "image": "http://localhost:8080/src/assets/images/shop/grid/4.jpg"
+    },
+    {
+      "id": 23,
+      "cate": 2,
+      "name": "Đèn Pha",
+      "price": 6000000,
+      "image": "http://localhost:8080/src/assets/images/shop/grid/4.jpg"
+    },
+    {
+      "name": "diep",
+      "price": "1000011",
+      "cate": "1",
+      "image": "http://localhost:8080/src/assets/images/shop/grid/4.jpg",
+      "id": 24
+    },
+    {
+      "name": "sdsd",
+      "price": "10000",
+      "cate": "1",
+      "image": "http://localhost:8080/src/assets/images/shop/grid/4.jpg",
+      "id": 25
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "opel"
+    },
+    {
+      "id": 2,
+      "name": "Subaru"
+    },
+    {
+      "id": 3,
+      "name": "Toyota"
+    },
+    {
+      "id": 4,
+      "name": "Audi"
+    },
+    {
+      "id": 5,
+      "name": "Honda"
+    },
+    {
+      "id": 6,
+      "name": "Cheverlet"
+    }
+  ],
+  "user": []
 }

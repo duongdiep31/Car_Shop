@@ -1,11 +1,11 @@
 {
     "name": "car",
     "version": "1.0.0",
-    "description": "",
     "main": "index.js",
     "scripts": {
         "start": "webpack server --open --mode development",
-        "start:sever": "json-server-auth --watch db.json"
+        "start:sever": "json-server-auth --watch db.json",
+        "dev:css": "npx tailwindcss -i tailwind.css -o dist/main.css --minify --watch"
     },
     "keywords": [],
     "author": "",
@@ -18,7 +18,19 @@
         "webpack-dev-server": "^3.11.2"
     },
     "devDependencies": {
+        "autoprefixer": "^10.3.6",
         "json-server": "^0.16.3",
-        "json-server-auth": "^2.1.0"
-    }
+        "json-server-auth": "^2.1.0",
+        "postcss": "^8.3.8",
+        "tailwindcss": "^2.2.16"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/duongdiep31/ECMA.git"
+    },
+    "bugs": {
+        "url": "https://github.com/duongdiep31/ECMA/issues"
+    },
+    "homepage": "https://github.com/duongdiep31/ECMA#readme",
+    "description": ""
 }

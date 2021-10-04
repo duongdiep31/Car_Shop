@@ -1,39 +1,22 @@
-import { getAll } from "../../api/productsapi";
+import { list } from "postcss";
+import { getAll, remove } from "../../api/productsapi";
+import Clistprd from "../../component/admin/Clisprd";
+import { reRender } from "../../utils";
 
 const productManagerPage = {
     async render() {
-        const stt = 1;
-        const { data } = await getAll();
-        const product = data.map(item => {
+        return /*html*/ `
 
+         <div id = "listprd">
 
-            return /*html*/ `<tr>
-            <th scope="row">${item.id}</th>
-            <td>${item.name}</td>
-            <td>${item.price}</td>
-            <td><img src="${item.image}" alt="">
-            </td>
-          </tr>`
-        }).join("")
+            ${ await Clistprd.render()}
+        </div>
+        
+        `
+    },
+    async afterRender() {
 
-
-
-
-        return /*html*/ `<table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Price</th>
-            <th scope="col">Image</th>
-            <th scope="col">Action</th>
-
-          </tr>
-        </thead>
-        <tbody>
-            ${product}         
-        </tbody>
-      </table>`
+        return `${ await Clistprd.afterRender()}`
     }
 }
 export default productManagerPage;

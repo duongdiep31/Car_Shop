@@ -3,6 +3,7 @@ const productdetails = {
 
 
         const response = await fetch(`http://localhost:3000/products/${id}`);
+        console.log(response);
         const product = response ? await response.json() : [];
         const nf = Intl.NumberFormat();
         const coin = product.price;
