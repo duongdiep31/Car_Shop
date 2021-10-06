@@ -39,10 +39,10 @@ const creatproduct = {
     },
     afterRender() {
         const btns = document.querySelector("#addprd");
-        console.log(btns);
         btns.addEventListener('submit', async(e) => {
             e.preventDefault();
             const data = {
+                id: Math.random().toString(5).substr(2),
                 name: $("#name").value,
                 price: $("#price").value,
                 cate: $("#cate").value,

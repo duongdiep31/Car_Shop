@@ -24,3 +24,20 @@ export const parseRequestUrl = () => {
         action: request[3]
     }
 }
+
+export const authenticate = (user) => {
+    if (typeof window === 'undefined') return false
+    return localStorage.setItem('user', JSON.stringify(user))
+}
+export const isAuthenticated = () => {
+    if (typeof window === 'undefined') return false;
+    if (localStorage.getItem('user')) {
+        return JSON.parse(localStorage.getItem('user'))
+    } else {
+        return false
+    }
+}
+export const removeAuthen = (callback) => {
+    localStorage.removeItem('user');
+    callback();
+}

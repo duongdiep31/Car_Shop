@@ -26,14 +26,6 @@ const render = async(page, afterRender) => {
 
 
 
-const renderadmin = async(page, afterRender) => {
-
-    $('#container').innerHTML = await page;
-
-    if (afterRender) {
-        await afterRender();
-    }
-}
 
 
 
@@ -51,11 +43,11 @@ const routes = () => {
         .on("/register", () => render(register.render(), register.afterRender))
         .on("/login", () => render(login.render(), login.afterRender))
         //admin
-        .on("/list", () => renderadmin(productManagerPage.render(), productManagerPage.afterRender))
-        .on("createprd", () => renderadmin(creatproduct.render(), creatproduct.afterRender))
+        .on("/list", () => render(productManagerPage.render(), productManagerPage.afterRender))
+        .on("createprd", () => render(creatproduct.render(), creatproduct.afterRender))
         .on("/changePrd/:id", ({ data }) => {
             const id = data.id;
-            renderadmin(changeProduct.render(id), changeProduct.afterRender)
+            render(changeProduct.render(id), changeProduct.afterRender)
         })
         .notFound(() => {
             console.log("Not Found Page");

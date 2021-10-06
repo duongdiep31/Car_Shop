@@ -13,7 +13,7 @@ export const remove = (id) => {
     return instance.delete(url)
 }
 export const add = (product) => {
-    const url = `/categories/${id}`;
+    const url = `/categories/`;
     return instance.post(url, product)
 }
 export const update = (id, product) => {

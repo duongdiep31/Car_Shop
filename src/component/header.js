@@ -1,6 +1,25 @@
+import { update } from "../api/user";
 import { $ } from "../utils"
 const header = {
     render() {
+        const check = () => {
+            const user = JSON.parse(localStorage.getItem('user'));
+
+            if (user) {
+                return /*html*/ `
+                <li>
+                <button>  <a href="/">Đăng Xuất</a> </button>
+              
+            </li>
+                `
+            } else {
+                return ` <li>
+                <a href="/login">Login</a> /
+                <a href="/register">Register</a>
+            </li>`
+            }
+        }
+
         return /*html*/ `<div class="top-bar">
         <div class="container">
             <div class="row">
@@ -12,10 +31,8 @@ const header = {
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-7">
                     <ul class="list-inline pull-right top-links">
-                        <li>
-                            <a href="#">Login</a> /
-                            <a href="#">Register</a>
-                        </li>
+                       
+                        ${check()}
                         <li>
                             <a href="#">Wishlist</a>
                         </li>

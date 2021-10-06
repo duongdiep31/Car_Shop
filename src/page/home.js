@@ -1,16 +1,19 @@
 import Banner from "../component/home/banner";
 
 const homepage = {
-    render() {
+    async render() {
+
+
+
         return /*html*/ ` 
         <section id="hero" class="hero">
-            ${Banner.render()}
+            ${  Banner.render()}
         </section>
 
 
     <section id="featuredItems" class="shop">
         <div class="container">
-            <div class="row product-boxes">
+            <div class="row product-boxes" style = "margin-top : 50px">
 
                 <div class="col-xs-12 col-sm-4 col-md-4 product-box">
                     <a href="#">

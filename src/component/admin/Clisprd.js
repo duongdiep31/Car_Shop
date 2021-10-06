@@ -55,7 +55,7 @@ const Clistprd = {
                 const Confirm = confirm('Bạn có thật sự muốn xoá?');
                 if(Confirm){
                     await remove(id);
-                    reRender(Clistprd, '#list');
+                    reRender(Clistprd, '#listprd');
                 }
             })
         })

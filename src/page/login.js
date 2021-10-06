@@ -1,47 +1,28 @@
+import instance from "../api/instance";
+import { signin } from "../api/user";
+import { $, authenticate, reRender } from "../utils";
+import productManagerPage from "./admin/list";
+import homepage from "./home";
+
 const login = {
-    render() {
-        return /*html*/ ` <section id="page-title" class="page-title">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-6">
-                    <h1>
-                        login model/h1>
-                </div>
-
-                <div class="col-xs-12 col-sm-12 col-md-6">
-                    <ol class="breadcrumb text-right">
-                        <li>
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li class="active">login</li>
-                    </ol>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <div class="clearfix mb-150"></div>
+    async render() {
+        return /*html*/ `
 
     <section id="signIn" class="sign">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12  col-sm-12  col-md-12">
-                    <div class="text-center">
-                        <button type="button" class="btn btn-primary text-center" data-toggle="modal" data-target=".login-modal-lg">sign in button</button>
-                    </div>
-                    <div class="modal model-sign fade login-modal-lg" tabindex="-1" role="dialog">
+                   
+                    <div class="dsd" tabindex="-1" role="dialog">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-body">
                                     <p>Welcome Back</p>
-                                    <h6>Login Area</h6>
+                                    <h6>Login</h6>
                                     <div class="sign-form">
-                                        <form class="mb-0">
+                                        <form id="signin" class="mb-0">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="username" placeholder="User Name">
+                                                <input type="text" class="form-control" id="email" placeholder="User Name">
                                             </div>
                                             <div class="form-group">
                                                 <input type="password" class="form-control" id="pwd" placeholder="Password">
@@ -78,6 +59,36 @@ const login = {
     },
 
     afterRender() {
+
+        const login = document.querySelector("#signin");
+        console.log(login);
+        login.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            signin({
+                    email: $("#email").value,
+                    password: $("#pwd").value
+                })
+                .then(response => {
+                    authenticate(response)
+                })
+                .then(() => {
+                    const user = JSON.parse(localStorage.getItem('user'));
+                    if (user.data.user.id == 3) {
+                        reRender(productManagerPage)
+                        window.location.hash = "/list"
+
+                    } else {
+                        reRender(homepage)
+                        window.location.hash = "/"
+                    }
+
+                })
+
+        })
+
+
+
         (function($) {
             "use strict";
             var $dropToggle = $("ul.dropdown-menu [data-toggle=dropdown]"),
@@ -177,6 +188,10 @@ const login = {
             var $heroSlider = $(".hero-slider");
             $heroSlider.slick({ dots: true, infinite: true, speed: 600, autoplay: false, autoplaySpeed: 2000, slidesToShow: 1, slidesToScroll: 1, variableWidth: false, arrows: true, prevArrow: '<div class="arrows arrow-prev"><i class="fa fa-angle-left"></i></div>', nextArrow: '<div class="arrows arrow-next"><i class="fa fa-angle-right"></i></div>', });
         }(jQuery));
+
+
+
+
     }
 }
 export default login
