@@ -1,7 +1,7 @@
 import { getAll, getcate } from "../../api/categoryapi";
 import {get, update } from "../../api/productsapi";
 import Clistprd from "../../component/admin/Clisprd";
-import { parseRequestUrl, reRender } from "../../utils";
+import { clickLogout, parseRequestUrl, reRender } from "../../utils";
 const changeProduct = {
     async render(id) {
         const { data } = await get(id);
@@ -44,6 +44,7 @@ const changeProduct = {
       </form>`
     },
     async afterRender() {
+        clickLogout();
         const btns = document.querySelector("#addprd");
         const { id } = parseRequestUrl();
         console.log(id);

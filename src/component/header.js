@@ -1,17 +1,22 @@
 import { update } from "../api/user";
-import { $ } from "../utils"
+import { $, removeAuthen } from "../utils"
 const header = {
     render() {
         const check = () => {
             const user = JSON.parse(localStorage.getItem('user'));
+            const logout = () => {
 
+            }
             if (user) {
                 return /*html*/ `
                 <li>
-                <button>  <a href="/">Đăng Xuất</a> </button>
-              
+                <button  id="logout">  Đăng Xuất </button>
+                
             </li>
+            
                 `
+
+
             } else {
                 return ` <li>
                 <a href="/login">Login</a> /
@@ -19,6 +24,10 @@ const header = {
             </li>`
             }
         }
+        const dsd = document.querySelector("#logout")
+        console.log();
+
+
 
         return /*html*/ `<div class="top-bar">
         <div class="container">
@@ -182,9 +191,6 @@ const header = {
         </div>
 
     </nav>`
-    },
-    afterRender() {
-        console.log(1);
     }
 }
 

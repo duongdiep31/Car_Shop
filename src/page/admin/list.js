@@ -1,7 +1,7 @@
 import { list } from "postcss";
 import { getAll, remove } from "../../api/productsapi";
 import Clistprd from "../../component/admin/Clisprd";
-import { reRender } from "../../utils";
+import { clickLogout, reRender } from "../../utils";
 
 const productManagerPage = {
     async render() {
@@ -15,6 +15,7 @@ const productManagerPage = {
         `
     },
     async afterRender() {
+        clickLogout()
 
         return `${ await Clistprd.afterRender()}`
     }

@@ -1,7 +1,7 @@
 import { getAll } from "../../api/categoryapi";
 import { add } from "../../api/productsapi";
 import Clistprd from "../../component/admin/Clisprd";
-import { $, reRender } from "../../utils";
+import { $, clickLogout, reRender } from "../../utils";
 
 const creatproduct = {
     async render() {
@@ -9,7 +9,6 @@ const creatproduct = {
         const resultcate = data.map(cate => {
             return /*html*/ ` <option value="${cate.id}">${cate.name}</option>`
         })
-        console.log(resultcate);
         return /*html*/ `<form class ="w-3/4 m-auto" id="addprd">
 
         <div class="mb-3">
@@ -38,6 +37,7 @@ const creatproduct = {
       </form>`
     },
     afterRender() {
+        clickLogout();
         const btns = document.querySelector("#addprd");
         btns.addEventListener('submit', async(e) => {
             e.preventDefault();

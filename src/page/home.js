@@ -1,4 +1,5 @@
 import Banner from "../component/home/banner";
+import { clickLogout } from "../utils";
 
 const homepage = {
     async render() {
@@ -749,6 +750,7 @@ const homepage = {
 `;
     },
     afterRender() {
+        clickLogout();
         (function($) {
             "use strict";
             var $dropToggle = $("ul.dropdown-menu [data-toggle=dropdown]"),

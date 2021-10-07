@@ -37,7 +37,17 @@ export const isAuthenticated = () => {
         return false
     }
 }
-export const removeAuthen = (callback) => {
-    localStorage.removeItem('user');
-    callback();
+export const logout = () => {
+    if (localStorage.getItem('user')) {
+        return localStorage.removeItem('user');
+    }
+}
+export const clickLogout = () => {
+    if (document.querySelector('#logout') != undefined) {
+        document.querySelector('#logout').onclick = () => {
+            logout();
+
+            window.location.hash = '/login';
+        }
+    }
 }
