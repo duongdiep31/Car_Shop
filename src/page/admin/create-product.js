@@ -2,7 +2,7 @@ import { getAll } from "../../api/categoryapi";
 import { add } from "../../api/productsapi";
 import Clistprd from "../../component/admin/Clisprd";
 import { $, clickLogout, reRender } from "../../utils";
-import { noteData } from "../../firebase/index";
+// import { storage } from "../../firebase"
 const creatproduct = {
     async render() {
         const { data } = await getAll();
@@ -43,19 +43,21 @@ const creatproduct = {
             e.preventDefault();
             const productimage = $("#images");
             let files = productimage.files[0];
-            console.log(files);
-            const url = ""
-                // const data = {
-                //     id: Math.random().toString(5).substr(2),
-                //     name: $("#name").value,
-                //     price: $("#price").value,
-                //     cate: $("#cate").value,
-                //     image: $("#image").value
-                // }
-                // console.log(data);
-                // await add(data)
-                // reRender(Clistprd, '#listprd');
-                // window.location.hash = '/list';
+            // console.log(app);
+            // let storageRef = storage.ref(`images/${files.name}`);
+            // console.log(storageRef);
+
+            // const data = {
+            //     id: Math.random().toString(5).substr(2),
+            //     name: $("#name").value,
+            //     price: $("#price").value,
+            //     cate: $("#cate").value,
+            //     image: $("#image").value
+            // }
+            // console.log(data);
+            // await add(data)
+            // reRender(Clistprd, '#listprd');
+            // window.location.hash = '/list';
 
 
         })

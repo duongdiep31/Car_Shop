@@ -1,6 +1,8 @@
 import {get, getAll } from "../api/productsapi";
 import { addToCart } from "../cart";
-import { clickLogout } from "../utils";
+import header from "../component/header";
+import cartMini from "../component/listCart";
+import { clickLogout, reRender } from "../utils";
 import productManagerPage from "./admin/list";
 
 const productdetails = {
@@ -521,7 +523,8 @@ const productdetails = {
                 ...data,
                 quantity: 1
             }
-            addToCart(newProduct)
+            await addToCart(newProduct)
+            window.location.hash = `/cart`
         })
     }
 }

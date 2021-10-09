@@ -1,5 +1,42 @@
+import { getCartItem } from "../cart";
+
 const Cart = {
     render() {
+        const data = getCartItem();
+        const subtotal = data.reduce((a, b) => a + b.price * b.quantity, 0)
+        const nf = Intl.NumberFormat();
+        const tax = data.length * 30000
+        const orderTotal = subtotal + tax;
+        const result = data.map(item => {
+                const totalPrice = item.quantity * item.price
+                const nf = Intl.NumberFormat();
+
+                return /*html*/ ` <tr class="cart-product">
+            <td class="cart-product-item">
+                <div class="cart-product-remove">
+                    <i class="fa fa-close"></i>
+                </div>
+                <div class="cart-product-img">
+                    <img src="${item.image}" style="width:20%;height:30%;" alt="product" />
+                </div>
+                <div class="cart-product-name">
+                    <h6>${item.name}</h6>
+                </div>
+            </td>
+            <td class="cart-product-price">${nf.format(item.price)} VND</td>
+            <td class="cart-product-quantity">
+                <div class="product-quantity">
+                    <a href="#"><i class="fa fa-minus"></i></a>
+                    <input type="text" value="${item.quantity}" id="pro1-qunt" readonly>
+                    <a href="#"><i class="fa fa-plus"></i></a>
+                </div>
+            </td>
+            <td class="cart-product-total">${nf.format(totalPrice)}</td>
+        </tr>
+       `
+            }
+
+        )
         return /*html*/ `<section id="page-title" class="page-title">
         <div class="container">
             <div class="row">
@@ -26,7 +63,7 @@ const Cart = {
     <section id="shopcart" class="shop shop-cart">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12  col-sm-12  col-md-12">
+                <div class="col-xs-12  col-sm-12  mt-10 col-md-12">
                     <div class="cart-table table-responsive">
                         <table class="table table-bordered">
                             <thead>
@@ -38,50 +75,11 @@ const Cart = {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="cart-product">
-                                    <td class="cart-product-item">
-                                        <div class="cart-product-remove">
-                                            <i class="fa fa-close"></i>
-                                        </div>
-                                        <div class="cart-product-img">
-                                            <img src="src/assets/images/shop/thumb/1.jpg" alt="product" />
-                                        </div>
-                                        <div class="cart-product-name">
-                                            <h6>Belt Car Engine</h6>
-                                        </div>
-                                    </td>
-                                    <td class="cart-product-price">$ 10.00</td>
-                                    <td class="cart-product-quantity">
-                                        <div class="product-quantity">
-                                            <a href="#"><i class="fa fa-minus"></i></a>
-                                            <input type="text" value="2" id="pro1-qunt" readonly>
-                                            <a href="#"><i class="fa fa-plus"></i></a>
-                                        </div>
-                                    </td>
-                                    <td class="cart-product-total">$ 20.00</td>
-                                </tr>
-                                <tr class="cart-product">
-                                    <td class="cart-product-item">
-                                        <div class="cart-product-remove">
-                                            <i class="fa fa-close"></i>
-                                        </div>
-                                        <div class="cart-product-img">
-                                            <img src="src/assets/images/shop/thumb/2.jpg" alt="product" />
-                                        </div>
-                                        <div class="cart-product-name">
-                                            <h6>OIL FILTER</h6>
-                                        </div>
-                                    </td>
-                                    <td class="cart-product-price">$ 40.00</td>
-                                    <td class="cart-product-quantity">
-                                        <div class="product-quantity">
-                                            <a href="#"><i class="fa fa-minus"></i></a>
-                                            <input type="text" value="3" id="pro2-qunt" readonly>
-                                            <a href="#"><i class="fa fa-plus"></i></a>
-                                        </div>
-                                    </td>
-                                    <td class="cart-product-total">$ 120.00</td>
-                                </tr>
+
+
+                                ${result}
+
+
                                 <tr class="cart-product-action">
                                     <td colspan="4">
                                         <div class="row clearfix">
@@ -439,9 +437,9 @@ const Cart = {
                     <div class="cart-total-amount">
                         <h6>Cart Totals :</h6>
                         <ul class="list-unstyled">
-                            <li>Cart Subtotal :<span class="pull-right text-right">$ 140.00</span></li>
-                            <li>Shipping :<span class="pull-right text-right">Free Shipping</span></li>
-                            <li>Order Total :<span class="pull-right text-right">$ 140.00</span></li>
+                            <li>Cart Subtotal :<span class="pull-right text-right">${nf.format(subtotal)}</span></li>
+                            <li>Shipping :<span class="pull-right text-right">${nf.format(tax)}</span></li>
+                            <li>Order Total :<span class="pull-right text-right">${nf.format(orderTotal)}</span></li>
                         </ul>
                     </div>
 
