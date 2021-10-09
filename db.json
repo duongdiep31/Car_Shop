@@ -1,70 +1,74 @@
 {
-  "products": [
-    {
-      "id": 6,
-      "cate": "2",
-      "name": "Đèn Phaaaâaa",
-      "price": "60000000022",
-      "image": "http://localhost:8080/src/assets/images/shop/grid/4.jpg"
-    },
-    {
-      "id": 21,
-      "cate": "2",
-      "name": "Đèn Phaaas",
-      "price": "6000000",
-      "image": "http://localhost:8080/src/assets/images/shop/grid/4.jpg"
-    }
-  ],
-  "categories": [
-    {
-      "id": 1,
-      "name": "opel"
-    },
-    {
-      "id": 2,
-      "name": "Subaru"
-    },
-    {
-      "id": 3,
-      "name": "Toyota"
-    },
-    {
-      "id": 4,
-      "name": "Audi"
-    },
-    {
-      "id": 5,
-      "name": "Honda"
-    },
-    {
-      "id": 6,
-      "name": "Cheverlet"
-    }
-  ],
-  "users": [
-    {
-      "email": "as@gmail.com",
-      "password": "$2a$10$3bN5nhuZEkp3LnjrrL/Wpeg2p6j2J9aaiciI9xb71mpm8Y.51NdN6",
-      "user": "Diep",
-      "id": 1
-    },
-    {
-      "email": "diep@gmail.com",
-      "password": "$2a$10$NcRn6E0OMVPDyujqNEfe7eqntinR/NKb1KADgVFHZAz58JI1FG3Ua",
-      "user": "diep",
-      "id": 2
-    },
-    {
-      "email": "diep1234@gmail.com",
-      "password": "$2a$10$jP0P9hfQtyHhS4cZnoRgVeIPG0xL1hZUdFQlXW0sDf3zdGTfH8X4W",
-      "user": "diep",
-      "id": 3
-    },
-    {
-      "email": "zenkyxz@gmail.com",
-      "password": "$2a$10$3UnaFPTlgxQalEn8XbppiOMabyiR0z.Cnt3XFF4GVe/tygeCuA2VS",
-      "user": "diep",
-      "id": 4
-    }
-  ]
+    "products": [{
+            "id": 21,
+            "categoryId": "2",
+            "name": "Đèn Phaaas",
+            "price": "6000000",
+            "image": "http://localhost:8080/src/assets/images/shop/grid/4.jpg"
+        },
+        {
+            "id": 6,
+            "categoryId": "2",
+            "name": "Đèn Phaaaâaa",
+            "price": "60000000022",
+            "image": "http://localhost:8080/src/assets/images/shop/grid/4.jpg"
+        },
+        {
+            "id": "22114241300401432201134",
+            "name": "ds",
+            "price": "60000002",
+            "categoryId": "1",
+            "image": "http://localhost:8080/src/assets/images/shop/grid/4.jpg"
+        }
+    ],
+    "categories": [{
+            "id": 1,
+            "name": "opel"
+        },
+        {
+            "id": 2,
+            "name": "Subaru"
+        },
+        {
+            "id": 3,
+            "name": "Toyota"
+        },
+        {
+            "id": 4,
+            "name": "Audi"
+        },
+        {
+            "id": 5,
+            "name": "Honda"
+        },
+        {
+            "id": 6,
+            "name": "Cheverlet"
+        }
+    ],
+    "users": [{
+            "email": "as@gmail.com",
+            "password": "$2a$10$3bN5nhuZEkp3LnjrrL/Wpeg2p6j2J9aaiciI9xb71mpm8Y.51NdN6",
+            "user": "Diep",
+            "id": 1
+        },
+        {
+            "email": "diep@gmail.com",
+            "password": "$2a$10$NcRn6E0OMVPDyujqNEfe7eqntinR/NKb1KADgVFHZAz58JI1FG3Ua",
+            "user": "diep",
+            "id": 2
+        },
+        {
+            "email": "diep1234@gmail.com",
+            "password": "$2a$10$jP0P9hfQtyHhS4cZnoRgVeIPG0xL1hZUdFQlXW0sDf3zdGTfH8X4W",
+            "user": "diep",
+            "id": 3
+        },
+        {
+            "email": "zenkyxz@gmail.com",
+            "password": "$2a$10$3UnaFPTlgxQalEn8XbppiOMabyiR0z.Cnt3XFF4GVe/tygeCuA2VS",
+            "user": "diep",
+            "id": 4
+        }
+    ]
 }

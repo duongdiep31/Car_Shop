@@ -59,17 +59,7 @@ const Clistprd = {
                 }
             })
         })
-        // for (let btn of btns) {
-        //     const id = btn.dataset.id;
-        //     btn.addEventListener('click', async() => {
-        //         const comfirm = confirm('bạn muốn xoá 0')
-        //         if (comfirm) {
-        //             await remove(id);
-        //             await reRender(Clistprd, '#listprd')
-        //         }
-
-
-        //     })
+       
         
     }
 }

@@ -2,11 +2,10 @@ import { update } from "../api/user";
 import { $, removeAuthen } from "../utils"
 const header = {
     render() {
-        const check = () => {
-            const user = JSON.parse(localStorage.getItem('user'));
-            const logout = () => {
+        const user = JSON.parse(localStorage.getItem('user'));
 
-            }
+        const check = () => {
+
             if (user) {
                 return /*html*/ `
                 <li>
@@ -18,26 +17,43 @@ const header = {
 
 
             } else {
-                return ` <li>
+                return /*html*/ ` <li>
                 <a href="/login">Login</a> /
                 <a href="/register">Register</a>
             </li>`
             }
         }
-        const dsd = document.querySelector("#logout")
-        console.log();
+        const info = () => {
+            if (user) {
+                return /*html*/ ` 
+                
+                <ul class="list-inline top-contact">
+                        <li><span>Phone :</span> +84358282316</li>
+                        <li><span>Email :</span> ${user.data.user.email}</li>
+                        
+                </ul>`
+
+
+            } else {
+                return ``
+            }
+
+
+        }
 
 
 
-        return /*html*/ `<div class="top-bar">
+
+        return /*html*/ `
+            
+        <div class="top-bar">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-5">
-                    <ul class="list-inline top-contact">
-                        <li><span>Phone :</span> +84358282316</li>
-                        <li><span>Email :</span> diepdvph11572@fpt.edu.vn</li>
-                    </ul>
-                </div>
+            <div class="col-xs-12 col-sm-6 col-md-5">
+
+                                    ${info()}
+
+                   </div>
                 <div class="col-xs-12 col-sm-6 col-md-7">
                     <ul class="list-inline pull-right top-links">
                        
@@ -180,7 +196,7 @@ const header = {
                         <div class="clearfix">
                         </div>
                         <div class="cart-control">
-                            <a class="btn btn-primary btn-block" href="#">view cart</a>
+                            <a class="btn btn-primary btn-block" href="#/cart">view cart</a>
                             <a class="btn btn-secondary btn-block" href="#">check out</a>
                         </div>
                     </div>

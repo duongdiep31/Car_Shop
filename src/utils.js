@@ -46,7 +46,6 @@ export const clickLogout = () => {
     if (document.querySelector('#logout') != undefined) {
         document.querySelector('#logout').onclick = () => {
             logout();
-
             window.location.hash = '/login';
         }
     }

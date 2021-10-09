@@ -11,10 +11,11 @@ import creatproduct from "./page/admin/create-product";
 import changeProduct from "./page/admin/change-product";
 import register from "./page/register";
 import login from "./page/login";
+import Cart from "./page/Cart";
 const router = new Navigo("/", { hash: true, linksSelector: "a" });
 const render = async(page, afterRender) => {
 
-    $('header').innerHTML = header.render(), header.afterRender;
+    $('header').innerHTML = header.render();
 
     $('#container').innerHTML = await page;
 
@@ -45,6 +46,7 @@ const routes = () => {
         //admin
         .on("/list", () => render(productManagerPage.render(), productManagerPage.afterRender))
         .on("createprd", () => render(creatproduct.render(), creatproduct.afterRender))
+        .on("/cart", () => render(Cart.render(), Cart.afterRender))
         .on("/changePrd/:id", ({ data }) => {
             const id = data.id;
             render(changeProduct.render(id), changeProduct.afterRender)

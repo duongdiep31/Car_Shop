@@ -60,32 +60,7 @@ const login = {
 
     afterRender() {
 
-        const login = document.querySelector("#signin");
-        console.log(login);
-        login.addEventListener('submit', (e) => {
-            e.preventDefault();
 
-            signin({
-                    email: $("#email").value,
-                    password: $("#pwd").value
-                })
-                .then(response => {
-                    authenticate(response)
-                })
-                .then(() => {
-                    const user = JSON.parse(localStorage.getItem('user'));
-                    if (user.data.user.id == 3) {
-                        reRender(productManagerPage)
-                        window.location.hash = "/list"
-
-                    } else {
-                        reRender(homepage)
-                        window.location.hash = "/"
-                    }
-
-                })
-
-        })
 
 
 
@@ -188,6 +163,30 @@ const login = {
             var $heroSlider = $(".hero-slider");
             $heroSlider.slick({ dots: true, infinite: true, speed: 600, autoplay: false, autoplaySpeed: 2000, slidesToShow: 1, slidesToScroll: 1, variableWidth: false, arrows: true, prevArrow: '<div class="arrows arrow-prev"><i class="fa fa-angle-left"></i></div>', nextArrow: '<div class="arrows arrow-next"><i class="fa fa-angle-right"></i></div>', });
         }(jQuery));
+        const login = document.querySelector("#signin");
+        login.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            signin({
+                    email: $("#email").value,
+                    password: $("#pwd").value
+                })
+                .then(response => {
+                    authenticate(response)
+                })
+                .then(() => {
+                    const user = JSON.parse(localStorage.getItem('user'));
+                    if (user.data.user.id == 3) {
+                        reRender(productManagerPage)
+                        window.location.hash = "/list"
+                    } else {
+                        reRender(homepage)
+                        window.location.hash = "/"
+                    }
+
+                })
+
+        })
 
 
 

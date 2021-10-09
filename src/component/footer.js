@@ -1,6 +1,9 @@
 const footer = {
     render() {
-        return /*html*/ `<div class="footer-info">
+        return /*html*/ `
+        <footer id="footer" class="footer footer-2">
+        
+        <div class="footer-info">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-3">
@@ -208,7 +211,7 @@ const footer = {
         </div>
 
     </div>
-`
+    </footer>`
     }
 }
 export default footer

@@ -2,7 +2,7 @@ import { getAll } from "../../api/categoryapi";
 import { add } from "../../api/productsapi";
 import Clistprd from "../../component/admin/Clisprd";
 import { $, clickLogout, reRender } from "../../utils";
-
+import { noteData } from "../../firebase/index";
 const creatproduct = {
     async render() {
         const { data } = await getAll();
@@ -31,7 +31,7 @@ const creatproduct = {
         <div class="mb-3 form-check">
         <label for="image" class="form-label">image</label>
 
-          <input type="text" class="form-check-input" name = "image" id="image">
+          <input type="file" class="form-check-input" name = "image" id="images">
         </div>
         <button type="submit" id = "btn" class="btn btn-primary">Submit</button>
       </form>`
@@ -39,19 +39,23 @@ const creatproduct = {
     afterRender() {
         clickLogout();
         const btns = document.querySelector("#addprd");
-        btns.addEventListener('submit', async(e) => {
+        btns.addEventListener('submit', (e) => {
             e.preventDefault();
-            const data = {
-                id: Math.random().toString(5).substr(2),
-                name: $("#name").value,
-                price: $("#price").value,
-                cate: $("#cate").value,
-                image: $("#image").value
-            }
-            console.log(data);
-            await add(data)
-            reRender(Clistprd, '#listprd');
-            window.location.hash = '/list';
+            const productimage = $("#images");
+            let files = productimage.files[0];
+            console.log(files);
+            const url = ""
+                // const data = {
+                //     id: Math.random().toString(5).substr(2),
+                //     name: $("#name").value,
+                //     price: $("#price").value,
+                //     cate: $("#cate").value,
+                //     image: $("#image").value
+                // }
+                // console.log(data);
+                // await add(data)
+                // reRender(Clistprd, '#listprd');
+                // window.location.hash = '/list';
 
 
         })

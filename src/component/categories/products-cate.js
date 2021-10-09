@@ -4,12 +4,13 @@ const Ccategories = {
     async render(id) {
         const { data } = await getAll();
         // const product = data.filter(item => item.cate === +id)
-        console.log(data);
-        const cate = data.filter(item => item.cate === +id);
+        const cate = data.filter(item => item.categoryId === id);
+
+
         const result = await cate.map(product => {
+            console.log(product);
             const nf = Intl.NumberFormat();
             const coin = product.price;
-            const quanity = product.length;
             return /*html*/ `
                 <div class="col-xs-12 col-sm-6 col-md-4 product">
                 <div class="product-img">
@@ -23,7 +24,7 @@ const Ccategories = {
                 </div>
                 <div class="product-bio">
                     <div class="prodcut-cat">
-                        <a href="#">Toyota</a>
+                        <a href="#/category/${product.category.id}">${product.category.name}</a>
                     </div>
 
                     <div class="prodcut-title">

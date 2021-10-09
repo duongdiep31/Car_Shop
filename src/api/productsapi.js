@@ -1,6 +1,6 @@
 import instance from "./instance";
 export const getAll = () => {
-    const url = '/products'
+    const url = '/products?_expand=category'
     return instance.get(url)
 }
 export const get = (id) => {

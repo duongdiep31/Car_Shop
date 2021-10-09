@@ -7,7 +7,7 @@ const productManagerPage = {
     async render() {
         return /*html*/ `
 
-         <div id = "listprd">
+         <div id = "listprd" style = " padding:50px 0;">
 
             ${ await Clistprd.render()}
         </div>

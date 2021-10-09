@@ -1,4 +1,5 @@
-import { getAll } from "../api/productsapi";
+import {get, getAll } from "../api/productsapi";
+import { addToCart } from "../cart";
 
 const CProduct = {
         async render() {
@@ -10,20 +11,21 @@ const CProduct = {
                 ${data.map(product => {
                     const nf = Intl.NumberFormat();
                      const coin = product.price;
-                      return `
+                      return /*html*/ `
                     <div class="col-xs-12 col-sm-6 col-md-4 product">
                     <div class="product-img">
                         <img src="${product.image}" alt="Product" />
                         <div class="product-hover">
                             <div class="product-action">
-                                <a class="btn btn-primary" href="#">Add To Cart</a>
+                                
+                                <button class="btn btn-primary" data-id =${product.id}  id="addtocart" >Add To Cart</button>
                                 <a class="btn btn-primary" href="#/products/${product.id}">Item Details</a>
                             </div>
                         </div>
                     </div>
                     <div class="product-bio">
                         <div class="prodcut-cat">
-                            <a href="#">Toyota</a>
+                            <a href="#/category/${product.category.id}">${product.category.name}</a>
                         </div>
 
                         <div class="prodcut-title">
@@ -42,6 +44,9 @@ const CProduct = {
                     `
                 }).join("")}
                 `
+    },
+    afterRender(){
+        
     }
 }
 export default CProduct
