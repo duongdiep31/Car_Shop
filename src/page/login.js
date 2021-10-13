@@ -1,6 +1,6 @@
 import instance from "../api/instance";
 import { signin } from "../api/user";
-import { $, authenticate, isAuthenticated, reRender } from "../utils";
+import { $, authenticate,isAuthenticated, reRender  } from "../utils";
 import productManagerPage from "./admin/list";
 import homepage from "./home";
 
