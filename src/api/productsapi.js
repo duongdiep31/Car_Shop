@@ -1,6 +1,10 @@
 import instance from "./instance";
 export const getAll = () => {
-    const url = '/products?_expand=category'
+    const url = '/products/'
+    return instance.get(url)
+}
+export const getAllcate = () => {
+    const url = '/products?_expand=categori'
     return instance.get(url)
 }
 export const get = (id) => {
@@ -18,10 +22,14 @@ export const remove = (id) => {
     return instance.delete(url)
 }
 export const add = (product) => {
-    const url = `/products/`;
+    const url = `/664/products/`;
     return instance.post(url, product)
 }
 export const update = (id, product) => {
     const url = `/products/${id}`;
     return instance.patch(url, product)
+}
+ export const searchprd = (textSearch) => {
+    const url = `/products?name_like=${textSearch}`;
+    return instance.get(url);
 }

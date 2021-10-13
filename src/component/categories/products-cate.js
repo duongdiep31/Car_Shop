@@ -8,7 +8,6 @@ const Ccategories = {
 
 
         const result = await cate.map(product => {
-            console.log(product);
             const nf = Intl.NumberFormat();
             const coin = product.price;
             return /*html*/ `

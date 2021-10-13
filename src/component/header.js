@@ -1,7 +1,8 @@
 import { update } from "../api/user";
 import { getCartItem } from "../cart";
-import { $, removeAuthen } from "../utils"
+import { isAuthenticated } from "../utils";
 import cartMini from "./listCart";
+
 const header = {
     render() {
         const user = JSON.parse(localStorage.getItem('user'));
@@ -31,7 +32,7 @@ const header = {
                 
                 <ul class="list-inline top-contact">
                         <li><span>Phone :</span> +84358282316</li>
-                        <li><span>Email :</span> ${user.data.user.email}</li>
+                        <li><span>Email :</span> ${isAuthenticated().user.email}</li>
                         
                 </ul>`
 
@@ -42,8 +43,19 @@ const header = {
 
 
         }
+        const search = () => {
+            return `<form class="search-form">
+            <div class="input-group">
+                <input type="text" id="search-inpt" class="form-control"  placeholder="Type Your Search Words">
+                <span class="input-group-btn">
+<button class="btn"  id="btn-search"><i class="fa fa-search"></i></button>
+</span>
+            </div>
 
-
+        </form>`
+        }
+        
+  
 
         return /*html*/ `
             
@@ -142,17 +154,12 @@ const header = {
                     <div class="search-icon">
                         <i class="fa fa-search"></i>
                         <span class="title">search</span>
+                     
                     </div>
                     <div class="search-box">
-                        <form class="search-form">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Type Your Search Words">
-                                <span class="input-group-btn">
-<button class="btn" type="button"><i class="fa fa-search"></i></button>
-</span>
-                            </div>
 
-                        </form>
+        ${search()}
+                       
                     </div>
                 </div>
 

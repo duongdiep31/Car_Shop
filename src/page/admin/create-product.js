@@ -1,8 +1,9 @@
 import { getAll } from "../../api/categoryapi";
 import { add } from "../../api/productsapi";
 import Clistprd from "../../component/admin/Clisprd";
+import '../../firebase'
+import { getStorage, ref, uploadBytes, getDownloadURL, uploadBytesResumable } from "@firebase/storage";
 import { $, clickLogout, reRender } from "../../utils";
-// import { storage } from "../../firebase"
 const creatproduct = {
     async render() {
         const { data } = await getAll();
@@ -41,25 +42,29 @@ const creatproduct = {
         const btns = document.querySelector("#addprd");
         btns.addEventListener('submit', (e) => {
             e.preventDefault();
+            const storage = getStorage();
             const productimage = $("#images");
-            let files = productimage.files[0];
-            // console.log(app);
-            // let storageRef = storage.ref(`images/${files.name}`);
-            // console.log(storageRef);
+            let file = productimage.files[0];
+            let storageRef = ref(storage, `images/${file.name}`);
+            
+            const uploadTask = uploadBytesResumable(storageRef, file);
 
-            // const data = {
-            //     id: Math.random().toString(5).substr(2),
-            //     name: $("#name").value,
-            //     price: $("#price").value,
-            //     cate: $("#cate").value,
-            //     image: $("#image").value
-            // }
-            // console.log(data);
-            // await add(data)
-            // reRender(Clistprd, '#listprd');
-            // window.location.hash = '/list';
+            uploadBytes(storageRef, file).then( async () => {
+             getDownloadURL(uploadTask.snapshot.ref).then( ( downloadURL) => {
+                 const  data = {
+                id: Math.random().toString(5).substr(2),
+                name: $("#name").value,
+                price: $("#price").value,
+                cate: $("#cate").value,
+                image: downloadURL
+               }
+                add(data)
+                 reRender(Clistprd, '#listprd')
+                window.location.hash = '/list'
+              });
+            })
 
-
+           
         })
 
 

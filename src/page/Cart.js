@@ -37,6 +37,7 @@ const Cart = {
             }
 
         )
+
         return /*html*/ `<section id="page-title" class="page-title">
         <div class="container">
             <div class="row">
@@ -441,6 +442,7 @@ const Cart = {
                             <li>Shipping :<span class="pull-right text-right">${nf.format(tax)}</span></li>
                             <li>Order Total :<span class="pull-right text-right">${nf.format(orderTotal)}</span></li>
                         </ul>
+                        
                     </div>
 
                 </div>

@@ -2,7 +2,7 @@ import {get, getAll } from "../api/productsapi";
 import { addToCart } from "../cart";
 import header from "../component/header";
 import cartMini from "../component/listCart";
-import { clickLogout, reRender } from "../utils";
+import { clickLogout, reRender, search } from "../utils";
 import productManagerPage from "./admin/list";
 
 const productdetails = {
@@ -511,14 +511,14 @@ const productdetails = {
             var $heroSlider = $(".hero-slider");
             $heroSlider.slick({ dots: true, infinite: true, speed: 600, autoplay: false, autoplaySpeed: 2000, slidesToShow: 1, slidesToScroll: 1, variableWidth: false, arrows: true, prevArrow: '<div class="arrows arrow-prev"><i class="fa fa-angle-left"></i></div>', nextArrow: '<div class="arrows arrow-next"><i class="fa fa-angle-right"></i></div>', });
         }(jQuery));
-        clickLogout()
+        clickLogout();
+        search();
         const btn = document.querySelector("#addtocart");
         const btn_id = btn.dataset.id
 
         btn.addEventListener('click', async() => {
             var { data } = await get(btn_id)
 
-            // console.log();
             const newProduct = {
                 ...data,
                 quantity: 1

@@ -9,7 +9,6 @@ export const setCartItems = cart => {
 }
 export const addToCart = (newProudct) => {
     let cartItems = getCartItem();
-    console.log(cartItems);
     const existProduct = cartItems.find(product => product.id === newProudct.id);
     if (existProduct) {
         existProduct.quantity++

@@ -53,7 +53,6 @@ const register = {
     },
     afterRender() {
         const btns = document.querySelector("#signup");
-        console.log(btns);
         btns.addEventListener("submit", async(e) => {
                 e.preventDefault();
                 const users = {

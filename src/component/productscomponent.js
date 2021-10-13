@@ -1,16 +1,17 @@
-import {get, getAll } from "../api/productsapi";
+import {get, getAll, getAllcate } from "../api/productsapi";
 import { addToCart } from "../cart";
 
 const CProduct = {
         async render() {
 
-            const { data } = await getAll();
+            const { data } = await getAllcate();
 
 
             return /*html*/ `
                 ${data.map(product => {
                     const nf = Intl.NumberFormat();
                      const coin = product.price;
+                     
                       return /*html*/ `
                     <div class="col-xs-12 col-sm-6 col-md-4 product">
                     <div class="product-img">
@@ -24,9 +25,7 @@ const CProduct = {
                         </div>
                     </div>
                     <div class="product-bio">
-                        <div class="prodcut-cat">
-                            <a href="#/category/${product.category.id}">${product.category.name}</a>
-                        </div>
+                   
 
                         <div class="prodcut-title">
                             <h3>

@@ -1,6 +1,6 @@
 import instance from "../api/instance";
 import { signin } from "../api/user";
-import { $, authenticate, reRender } from "../utils";
+import { $, authenticate, isAuthenticated, reRender } from "../utils";
 import productManagerPage from "./admin/list";
 import homepage from "./home";
 
@@ -55,10 +55,38 @@ const login = {
     </section>
 
     <div class="clearfix mb-150"></div>
-`
+                                            `
     },
 
     afterRender() {
+ const login = document.querySelector("#signin");
+        login.addEventListener('submit', (e) => {
+
+            e.preventDefault();
+            
+            signin({
+                    email: $("#email").value,
+                    password: $("#pwd").value
+                })
+                .then(response => {
+                    authenticate(response.data)
+                })
+                .then(() => {
+                    if (isAuthenticated) {
+                        console.log(isAuthenticated().user.id);
+                        if (isAuthenticated().user.id === 1) {
+                        reRender(productManagerPage)
+                        window.location.hash = "/list"
+                    } else {
+                        reRender(homepage)
+                        window.location.hash = "/"
+                    }
+                    }
+                    
+
+                })
+
+        })
 
 
 
@@ -163,31 +191,7 @@ const login = {
             var $heroSlider = $(".hero-slider");
             $heroSlider.slick({ dots: true, infinite: true, speed: 600, autoplay: false, autoplaySpeed: 2000, slidesToShow: 1, slidesToScroll: 1, variableWidth: false, arrows: true, prevArrow: '<div class="arrows arrow-prev"><i class="fa fa-angle-left"></i></div>', nextArrow: '<div class="arrows arrow-next"><i class="fa fa-angle-right"></i></div>', });
         }(jQuery));
-        const login = document.querySelector("#signin");
-        login.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            signin({
-                    email: $("#email").value,
-                    password: $("#pwd").value
-                })
-                .then(response => {
-                    authenticate(response)
-                })
-                .then(() => {
-                    const user = JSON.parse(localStorage.getItem('user'));
-                    if (user.data.user.id == 3) {
-                        reRender(productManagerPage)
-                        window.location.hash = "/list"
-                    } else {
-                        reRender(homepage)
-                        window.location.hash = "/"
-                    }
-
-                })
-
-        })
-
+       
 
 
 

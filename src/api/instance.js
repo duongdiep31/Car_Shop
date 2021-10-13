@@ -1,11 +1,12 @@
 import axios from 'axios';
 import { isAuthenticated } from '../utils';
 const token = isAuthenticated().accessToken
+console.log(token);
 const instance = axios.create({
     baseURL: 'http://localhost:3000',
     headers: {
         "Content-Type": "application/json",
-        "Athorization": "Bear" + token
+        "Authorization": "Bearer:" + token
     }
 });
 export default instance;

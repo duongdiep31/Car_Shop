@@ -1,15 +1,13 @@
+
 export const $ = (selector) => {
     let elements = document.querySelectorAll(selector);
     return elements.length == 1 ? elements[0] : [...elements]
 }
 export const reRender = async(component, position = "") => {
     if (position) {
-        console.log(component)
         $(position).innerHTML = await component.render();
-        console.log(position)
     } else {
         $("#root").innerHTML = await component.render();
-        console.log(component);
     }
     await component.afterRender();
 }
@@ -17,7 +15,6 @@ export const parseRequestUrl = () => {
     const url = window.location.hash.toLowerCase();
 
     const request = url.split('/');
-    // console.log(request);
     return {
         resource: request[1],
         id: request[2],
@@ -49,4 +46,15 @@ export const clickLogout = () => {
             window.location.hash = '/login';
         }
     }
+   
 }
+export const search = () => {
+    if(document.querySelector('#btn-search')){
+        document.querySelector("#btn-search").addEventListener("click", function (e) {
+            e.preventDefault();
+            const textSearch = $("#search-inpt").value;
+            window.location.hash = `/search/${textSearch}`;
+        })
+    }
+}
+

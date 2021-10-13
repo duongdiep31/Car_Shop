@@ -1,5 +1,5 @@
 import Banner from "../component/home/banner";
-import { clickLogout } from "../utils";
+import { clickLogout,search } from "../utils";
 
 const homepage = {
     async render() {
@@ -750,7 +750,11 @@ const homepage = {
 `;
     },
     afterRender() {
-        clickLogout();
+           
+        clickLogout();  
+        search();
+        
+            
 
         (function($) {
             "use strict";

@@ -1,11 +1,54 @@
+import { searchprd } from "../api/productsapi";
 import CBrands from "../component/brands";
 import categorycomponent from "../component/categories/category";
 import CProduct from "../component/productscomponent";
 import productscomponent from "../component/productscomponent";
-import { clickLogout, search } from "../utils";
-const product = {
+import { clickLogout, parseRequestUrl, search } from "../utils";
+const productSearch = {
     async render() {
+        const {id} = parseRequestUrl();
+        console.log(id);
+        const {data} = await searchprd(id)
+        console.log(data);
+         const result =  data.map(item => {
+            const nf = Intl.NumberFormat();
+            const length = data.length;
+            if (length == 0) {
+                return `<div class=" text-center absolute mx-48 mt-20">
+                <div class="text-4xl font-semibold">Không tìm thấy sản phẩm <i class="far fa-sad-tear"></i></div>
+                <div><a href="/"><button class="btn btn-primary mt-4">Trang chủ</button></a></div>
+            </div>`
+            }else{
+                return/*html*/`
+                <div class="col-xs-12 col-sm-6 col-md-4 product">
+                <div class="product-img">
+                    <img src="${item.image}" alt="Product" />
+                    <div class="product-hover">
+                        <div class="product-action">
+                            
+                            <button class="btn btn-primary"  id="addtocart" >Add To Cart</button>
+                            <a class="btn btn-primary" href="#/products/${item.id}   ">Item Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-bio">
+               
 
+                    <div class="prodcut-title">
+                        <h3>
+                            <a href="#"> ${item.name}  </a>
+                        </h3>
+                    </div>
+
+                    <div class="product-price">
+                        <span class="symbole">${nf.format(item.price)} VND </span>
+                    </div>
+
+                </div>
+
+            </div>`
+            }
+        })
 
         return /*html*/ `
             
@@ -52,7 +95,6 @@ const product = {
                         </div>
 
                      
-
 
 
 
@@ -179,9 +221,11 @@ const product = {
 
                     </div>
 
-                    <div class="row">
-                        ${await CProduct.render()}
-                    </div>
+
+
+
+
+                        ${result}
 
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -315,7 +359,8 @@ const product = {
         clickLogout()
         search();
 
+
     }
 
 }
-export default product
+export default productSearch

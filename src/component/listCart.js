@@ -3,17 +3,15 @@ import { getCartItem } from "../cart";
 const cartMini = {
     render() {
         const data = getCartItem();
-        console.log(data);
         const noti = data.length
         const subtotal = data.reduce((a, b) => a + b.price * b.quantity, 0)
+        
 
         function sub() {
             const data = getCartItem();
             const nf = Intl.NumberFormat();
 
             const subtotal = data.reduce((a, b) => a + b.price * b.quantity, 0)
-            const tax = data.length * 30000
-            console.log(tax);
             if (data) {
                 return /*html*/ `
                     <div class="total-price mb-4" >
