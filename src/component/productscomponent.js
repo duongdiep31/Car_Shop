@@ -1,5 +1,6 @@
 import {get, getAll, getAllcate } from "../api/productsapi";
 import { addToCart } from "../cart";
+import { $ } from "../utils";
 
 const CProduct = {
         async render() {
@@ -19,7 +20,7 @@ const CProduct = {
                         <div class="product-hover">
                             <div class="product-action">
                                 
-                                <button class="btn btn-primary" data-id =${product.id}  id="addtocart" >Add To Cart</button>
+                                <a class="btn btn-primary" data-id =${product.id}  id="addtocart" >Add To Cart</a>
                                 <a class="btn btn-primary" href="#/products/${product.id}">Item Details</a>
                             </div>
                         </div>
@@ -46,6 +47,21 @@ const CProduct = {
     },
     afterRender(){
         
+        const btns = document.querySelectorAll("#addtocart")
+        btns.forEach(item => {
+            const id = item.dataset.id
+            item.addEventListener('click', async (e) => {
+                e.preventDefault();
+                var { data } = await get(id)
+
+                const newProduct = {
+                    ...data,
+                    quantity: 1
+                }
+                await addToCart(newProduct)
+                window.location.hash = `/cart`
+            })
+        });
     }
 }
 export default CProduct

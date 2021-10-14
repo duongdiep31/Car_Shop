@@ -1,5 +1,4 @@
-import { getCartItem } from "../cart";
-
+import { getCartItem } from "../../cart";
 const cartMini = {
     render() {
         const data = getCartItem();

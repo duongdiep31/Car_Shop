@@ -1,7 +1,6 @@
 import {get, getAll } from "../api/productsapi";
 import { addToCart } from "../cart";
 import header from "../component/header";
-import cartMini from "../component/listCart";
 import { clickLogout, reRender, search } from "../utils";
 import productManagerPage from "./admin/list";
 

@@ -17,3 +17,10 @@ export const addToCart = (newProudct) => {
     }
     setCartItems(cartItems)
 }
+export const removeItemFromCart = (id) =>{
+    const cartItems = getCartItem()
+     console.log('cartItems',cartItems)
+     const newCartItems = cartItems.filter(item => item.id != id)
+     console.log('newCartItems', newCartItems)
+     setCartItems(newCartItems);
+ }

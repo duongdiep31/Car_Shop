@@ -1,7 +1,7 @@
 import { update } from "../api/user";
 import { getCartItem } from "../cart";
 import { isAuthenticated } from "../utils";
-import cartMini from "./listCart";
+import cartMini from "./Cart/listCart";
 
 const header = {
     render() {

@@ -314,6 +314,7 @@ const product = {
         }(jQuery));
         clickLogout()
         search();
+        CProduct.afterRender();
 
     }
 
