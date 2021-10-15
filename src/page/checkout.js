@@ -8,10 +8,7 @@ const checkout = {
     render(){
                     
         return /*html*/ `
-       
-            <form id="checkout" >
-            <div class="col-xs-12  col-sm-12  mt-10 col-md-12">
-            <div class="cart-table table-responsive">
+            <div style="width:80%;margin:auto; padding:40px 40px"  class="cart-table table-responsive  ">
                 <table class="table table-bordered">
                     <thead>
                         <tr class="cart-product">
@@ -32,15 +29,17 @@ const checkout = {
                             <td colspan="4">
                                 <div class="row clearfix">
                                     <div class="col-xs-12 col-sm-6 col-md-6">
-                                        <form class="form-inline">
-                                            <input type="text" class="form-control" id="coupon" placeholder="Coupon Code" />
-                                            <button type="submit" class="btn btn-primary">Địa Chỉ</button>
-                                        </form>
+                                        
                                     </div>
 
                                     <div class="col-xs-12 col-sm-6 col-md-6 text-right">
-                                        <a class="btn btn-secondary" href="#">update cart</a>
-                                        <a class="btn btn-primary" href="#/checkout">Proceed To Checkout</a>
+                                        <form id="checkout" class="form-inline">
+                                               <label style="padding-right:10px;" for="address">Address  :</label>
+
+                                              <input style="width:250px;height:30px;border:1px solid #e5e5e5;" type="text" id="address" placeholder="Coupon Code"/>
+
+                                            <button type="submit" class="btn btn-primary">Confirm     </button>
+                                        </form>
                                     </div>
 
                                 </div>
@@ -48,15 +47,9 @@ const checkout = {
                         </tr>
                     </tbody>
                 </table>
-            </div>
+             </div>
 
-        </div>
-            <span> Địa chỉ </span>
-            <input class="form-control" type="text" id = "address" >
-            <button class="btn btn-primary">checkout</button>
-
-            </form>
-           
+                            
         `
     },
     afterRender(){

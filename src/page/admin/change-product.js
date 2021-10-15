@@ -11,7 +11,8 @@ const changeProduct = {
         const item = cate.map(id => {
             return /*html*/ `<option value="${id.id}">${id.name}</option>`
         })
-        const cateid = await (await getcate(data.cate)).data
+
+        const cateid = await (await getcate(data.categoriesId)).data
             // await (await (await getcate(data.cate)).data)
 
         
