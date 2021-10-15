@@ -4,7 +4,7 @@ export const getAll = () => {
     return instance.get(url)
 }
 export const getAllcate = () => {
-    const url = '/products?_expand=categori'
+    const url = '/products?_expand=categories'
     return instance.get(url)
 }
 export const get = (id) => {

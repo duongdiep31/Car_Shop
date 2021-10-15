@@ -55,7 +55,7 @@ const creatproduct = {
                 id: Math.random().toString(5).substr(2),
                 name: $("#name").value,
                 price: $("#price").value,
-                cate: $("#cate").value,
+                categoriesId: $("#cate").value,
                 image: downloadURL
                }
                 add(data)

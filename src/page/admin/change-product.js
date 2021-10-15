@@ -63,7 +63,7 @@ const changeProduct = {
                 
                 name: document.querySelector("#name").value,
                 price: document.querySelector("#price").value,
-                cate: document.querySelector("#cate").value,
+                categoriesId: document.querySelector("#cate").value,
                 image: `${data.image}`
                 
             }
@@ -83,7 +83,7 @@ const changeProduct = {
                           id: Math.random().toString(5).substr(2),
                           name: $("#name").value,
                           price: $("#price").value,
-                          cate: $("#cate").value,
+                          categoriesId: $("#cate").value,
                           image: downloadURL
                         }
                             update(id,data)

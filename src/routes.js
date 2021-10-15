@@ -13,6 +13,7 @@ import register from "./page/register";
 import login from "./page/login";
 import Cart from "./page/Cart";
 import productSearch from "./page/productsSearch";
+import checkout from "./page/checkout";
 const router = new Navigo("/", { hash: true, linksSelector: "a" });
 const render = async(page, afterRender) => {
 
@@ -40,6 +41,7 @@ const routes = () => {
         })
         .on("/category/:id", ({ data }) => {
             const id = data.id;
+            console.log(id);
             render(categorydetails.render(id), categorydetails.afterRender)
         })
        .on("/register", () => render(register.render(), register.afterRender))
@@ -54,6 +56,7 @@ const routes = () => {
             render(changeProduct.render(id), changeProduct.afterRender)
         })
         .on("/search/:id",() => render(productSearch.render(),productSearch.afterRender))
+        .on("checkout", () => render(checkout.render(),checkout.afterRender))
         .notFound(() => {
             console.log("Not Found Page");
         })

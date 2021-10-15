@@ -4,29 +4,22 @@
       "id": "41413402230024122030402",
       "name": "VAnh Tồ",
       "price": "123123123123",
-      "cate": "1",
+      "categoriesId": "1",
       "image": "https://firebasestorage.googleapis.com/v0/b/assigment-c2775.appspot.com/o/images%2FF24E676C-8F88-41FB-94A7-ED648447F182_4_5005_c.jpeg?alt=media&token=ab74417a-8ab6-4c80-8169-568cd7ee633a"
     },
     {
-      "name": "duong",
-      "price": "600000022221",
-      "cate": "1",
-      "image": "https://firebasestorage.googleapis.com/v0/b/assigment-c2775.appspot.com/o/images%2FF2CE1F6E-D376-4865-92A8-66BCB27F7D5F_4_5005_c.jpeg?alt=media&token=b587fdfd-767d-4724-bb5d-f9a470221775",
-      "id": "TSPXAnv"
-    },
-    {
-      "name": "duong zz",
-      "price": "600000022221",
-      "cate": "1",
-      "image": "https://firebasestorage.googleapis.com/v0/b/assigment-c2775.appspot.com/o/images%2FF2CE1F6E-D376-4865-92A8-66BCB27F7D5F_4_5005_c.jpeg?alt=media&token=b587fdfd-767d-4724-bb5d-f9a470221775",
-      "id": "DcGhaxg"
-    },
-    {
-      "id": "034010011343311132042324",
+      "id": "4402042212141222102224",
       "name": "Apple",
-      "price": "123123",
-      "cate": "1",
-      "image": "https://firebasestorage.googleapis.com/v0/b/assigment-c2775.appspot.com/o/images%2F6A86CF7A-0D69-4CDC-BF1A-ACB85BD95111_4_5005_c.jpeg?alt=media&token=938e711e-11f0-47f6-9452-3732234fdad0"
+      "price": "60000002",
+      "categoriesId": "5",
+      "image": "https://firebasestorage.googleapis.com/v0/b/assigment-c2775.appspot.com/o/images%2F6BDF2E8A-EFC7-401F-8524-D18661D485F7_4_5005_c.jpeg?alt=media&token=4e2c3522-bc20-4d6b-bfed-117a51b30b75"
+    },
+    {
+      "id": "20403012141321113410231",
+      "name": "ds",
+      "price": "12322",
+      "categoriesId": "2",
+      "image": "https://firebasestorage.googleapis.com/v0/b/assigment-c2775.appspot.com/o/images%2F6BEF6F97-519B-4BC8-85DE-8F9C7C7C8834_4_5005_c.jpeg?alt=media&token=08c38233-62da-4de9-82ef-05c636caab32"
     }
   ],
   "categories": [
@@ -66,6 +59,42 @@
       "email": "diep234@gmail.com",
       "password": "$2a$10$Cg4otxWbGsC0fMvi3Cog7uEX8QGBxf7qlFlgmQpY60EsF1tNzLcNK",
       "user": "lucky@gmail.com",
+      "id": 2
+    }
+  ],
+  "orders": [
+    {
+      "products": [
+        {
+          "name": "VAnh Tồ",
+          "quantity": 1,
+          "total": 123123123123
+        },
+        {
+          "name": "Apple",
+          "quantity": 1,
+          "total": 60000002
+        }
+      ],
+      "subtotal": 123183123125,
+      "address": "dsd",
+      "id": 1
+    },
+    {
+      "products": [
+        {
+          "name": "VAnh Tồ",
+          "quantity": 1,
+          "total": 123123123123
+        },
+        {
+          "name": "Apple",
+          "quantity": 1,
+          "total": 60000002
+        }
+      ],
+      "subtotal": 123183123125,
+      "address": "ds",
       "id": 2
     }
   ]

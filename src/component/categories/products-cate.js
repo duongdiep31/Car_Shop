@@ -1,13 +1,14 @@
-import { getAll } from "../../api/productsapi"
+import { getAll, getAllcate } from "../../api/productsapi"
 
 const Ccategories = {
     async render(id) {
-        const { data } = await getAll();
+        const { data } = await getAllcate();
         // const product = data.filter(item => item.cate === +id)
-        const cate = data.filter(item => item.categoryId === id);
+        const cate = data.filter(item => item.categoriesId === id);
 
 
         const result = await cate.map(product => {
+            console.log(product.categories.name);
             const nf = Intl.NumberFormat();
             const coin = product.price;
             return /*html*/ `
@@ -23,7 +24,7 @@ const Ccategories = {
                 </div>
                 <div class="product-bio">
                     <div class="prodcut-cat">
-                        <a href="#/category/${product.category.id}">${product.category.name}</a>
+                        <a href="#/category/${product.categories.id} "> ${product.categories.name}</a>
                     </div>
 
                     <div class="prodcut-title">

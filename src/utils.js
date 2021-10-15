@@ -7,7 +7,7 @@ export const reRender = async(component, position = "") => {
     if (position) {
         $(position).innerHTML = await component.render();
     } else {
-        $("#root").innerHTML = await component.render();
+        $("#container").innerHTML = await component.render();
     }
     await component.afterRender();
 }

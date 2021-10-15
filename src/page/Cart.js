@@ -66,7 +66,7 @@ const Cart = {
 
                                             <div class="col-xs-12 col-sm-6 col-md-6 text-right">
                                                 <a class="btn btn-secondary" href="#">update cart</a>
-                                                <a class="btn btn-primary" href="#">Proceed To Checkout</a>
+                                                <a class="btn btn-primary" href="#/checkout">Proceed To Checkout</a>
                                             </div>
 
                                         </div>
@@ -79,26 +79,7 @@ const Cart = {
                 </div>
 
                 <div class="col-xs-12  col-sm-12  col-md-6 mb-30-xs mb-30-sm">
-                    <div class="cart-shiping">
-                        <h6>Calculate Shipping :</h6>
-                        <div class="row">
-                            <form>
-                                <div class="col-xs-12 col-md-12">
-                                    <i class="fa fa-angle-down"></i>
-                                    <select class="form-control">
-<option value="USA">USA</option>
-
-</select>
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" id="postal-code" placeholder="Postal Code / ZIP">
-                                </div>
-                                <div class="col-md-12">
-                                    <button type="submit" class="btn btn-primary pull-right pull-none-xs">update total</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                   
 
                 </div>
 
@@ -112,7 +93,6 @@ const Cart = {
                         </ul>
                         
                     </div>
-
                 </div>
 
             </div>
@@ -123,6 +103,7 @@ const Cart = {
     },
     afterRender() {
         Ccart.afterRender()
+  
         (function($) {
             "use strict";
             var $dropToggle = $("ul.dropdown-menu [data-toggle=dropdown]"),
