@@ -38,7 +38,7 @@ const checkout = {
 
                                               <input style="width:250px;height:30px;border:1px solid #e5e5e5;" type="text" id="address" placeholder="Coupon Code"/>
 
-                                            <button type="submit" class="btn btn-primary">Confirm     </button>
+                                            <button type="submit" class="btn btn-primary">Confirm</button>
                                         </form>
                                     </div>
 

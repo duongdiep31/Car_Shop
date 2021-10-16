@@ -15,7 +15,7 @@ const CProduct = {
                      
                       return /*html*/ `
                     <div class="col-xs-12 col-sm-6 col-md-4 product">
-                    <div class="product-img">
+                    <div style="height:286px" class="product-img">
                         <img src="${product.image}" alt="Product" />
                         <div class="product-hover">
                             <div class="product-action">
