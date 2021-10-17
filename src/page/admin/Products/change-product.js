@@ -1,7 +1,7 @@
-import { getAll, getcate } from "../../api/categoryapi";
-import {get, update } from "../../api/productsapi";
-import Clistprd from "../../component/admin/Clisprd";
-import { clickLogout, parseRequestUrl, reRender } from "../../utils";
+import { getAll, getcate } from "../../../api/categoryapi";
+import {get, update } from "../../../api/productsapi";
+import Clistprd from "../../../component/admin/Clisprd";
+import { clickLogout, parseRequestUrl, reRender } from "../../../utils";
 import { getStorage, ref, uploadBytes, getDownloadURL, uploadBytesResumable } from "@firebase/storage";
 
 const changeProduct = {
@@ -17,7 +17,12 @@ const changeProduct = {
 
         
 
-        return /*html*/ `<form class ="w-3/4 m-auto" id="addprd">
+        return /*html*/ `
+        
+        <div class="w-3/4 m-auto">
+        <a  href="#/admin">Control</a> / <a  href="#/admin/list"> List Products</a> / <span> Change Products </span>
+          </div>
+        <form class ="w-3/4 m-auto"  style="padding:30px 0" id="addprd">
 
         <div class="mb-3">
           <label for="name" class="form-label">name</label>
@@ -42,7 +47,7 @@ const changeProduct = {
         <label for="image" class="form-label">image</label>
 
           <input type="file" class="form-check-input" name = "image" id="images">
-          <img style = "width:20%;height:19%" src="${data.image}"/>
+          <img style = "width:20%;height:19%;padding:20px 0px" src="${data.image}"/>
         </div>
         <button type="submit" id = "btn" class="btn btn-primary">Submit</button>
       </form>`
@@ -59,7 +64,6 @@ const changeProduct = {
             const productimage = document.querySelector("#images");
 
             if (productimage.files.length == 0) {
-              console.log(123);
               const product = {
                 
                 name: document.querySelector("#name").value,
@@ -70,7 +74,7 @@ const changeProduct = {
             }
             await update(id, product)
             reRender(Clistprd, '#listprd')
-                          window.location.hash = '/list'
+                          window.location.hash = '#/admin/list'
             }
             else{
               let file = productimage.files[0]; 
@@ -89,7 +93,7 @@ const changeProduct = {
                         }
                             update(id,data)
                           reRender(Clistprd, '#listprd')
-                          window.location.hash = '/list'
+                          window.location.hash = '#/admin/list'
                         });
                       })
                   }

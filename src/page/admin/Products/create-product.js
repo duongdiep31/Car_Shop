@@ -1,16 +1,20 @@
-import { getAll } from "../../api/categoryapi";
-import { add } from "../../api/productsapi";
-import Clistprd from "../../component/admin/Clisprd";
-import '../../firebase'
+import { getAll } from "../../../api/categoryapi";
+import { add } from "../../../api/productsapi";
+import Clistprd from "../../../component/admin/Clisprd";
+import '../../../firebase'
 import { getStorage, ref, uploadBytes, getDownloadURL, uploadBytesResumable } from "@firebase/storage";
-import { $, clickLogout, reRender } from "../../utils";
+import { $, clickLogout, reRender } from "../../../utils";
 const creatproduct = {
     async render() {
         const { data } = await getAll();
         const resultcate = data.map(cate => {
             return /*html*/ ` <option value="${cate.id}">${cate.name}</option>`
         })
-        return /*html*/ `<form class ="w-3/4 m-auto" id="addprd">
+        return /*html*/ `
+        <div class="w-3/4 m-auto">
+        <a  href="#/admin">Control</a> / <a  href="#/admin/list"> List Products</a> / <span> Create Products </span>
+          </div>
+        <form class =" w-3/4 m-auto"  style="padding:30px 0" id="addprd">
 
         <div class="mb-3">
           <label for="name" class="form-label">name</label>
@@ -60,7 +64,7 @@ const creatproduct = {
                }
                 add(data)
                  reRender(Clistprd, '#listprd')
-                window.location.hash = '/list'
+                window.location.hash = '#/admin/list'
               });
             })
 

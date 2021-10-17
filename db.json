@@ -5,21 +5,14 @@
       "name": "Audi R8",
       "price": "20000000000",
       "categoriesId": "4",
-      "image": "https://firebasestorage.googleapis.com/v0/b/assigment-c2775.appspot.com/o/images%2Fdf3faa2656c2253fa11a90c585bab04d.jpeg?alt=media&token=53cfef06-a500-4052-a506-b4c64e74d3b9"
-    },
-    {
-      "id": "0122242130223400234223143",
-      "name": "Honda City",
-      "price": "600000000",
-      "categoriesId": "5",
-      "image": "https://firebasestorage.googleapis.com/v0/b/assigment-c2775.appspot.com/o/images%2Fgia-xe-honda-city-moi-nhat-oto-com-vn-1-0af0.jpeg?alt=media&token=ec4cd6c7-7e71-431e-90fd-6b74f460d6c0"
+      "image": "https://firebasestorage.googleapis.com/v0/b/assigment-c2775.appspot.com/o/images%2Fdf3faa2656c2253fa11a90c585bab04d.jpeg?alt=media&token=280afef4-4ed7-4ecf-b873-06f112a90eec"
     },
     {
       "id": "041324140132143434123322",
       "name": "Toyota Camry",
       "price": "1000000000",
       "categoriesId": "3",
-      "image": "https://firebasestorage.googleapis.com/v0/b/assigment-c2775.appspot.com/o/images%2F4524_toyota-camry-2-5q-2019-oto-com-vn-3-6263.jpeg?alt=media&token=ac103d44-2bc5-4825-b604-587e97dbe7e1"
+      "image": "https://firebasestorage.googleapis.com/v0/b/assigment-c2775.appspot.com/o/images%2F4524_toyota-camry-2-5q-2019-oto-com-vn-3-6263.jpeg?alt=media&token=3270b713-bf1f-4105-8ee8-de0fd924442a"
     },
     {
       "id": "20441143414301043430424",
@@ -61,12 +54,12 @@
       "name": "Audi"
     },
     {
-      "id": 5,
-      "name": "Honda"
+      "name": "Chevrolet",
+      "id": 5
     },
     {
-      "id": 6,
-      "name": "Cheverlet"
+      "name": "Honda",
+      "id": 6
     }
   ],
   "users": [
@@ -84,56 +77,27 @@
     }
   ],
   "orders": [
+   
     {
+      "name": "Dương Điệp",
+      "phone": "0358282316",
+      "status": "Xác Nhận Đơn Hàng",
       "products": [
         {
-          "name": "VAnh Tồ",
+          "name": "Toyota Camry",
           "quantity": 1,
-          "total": 123123123123
+          "total": 1000300000
         },
         {
-          "name": "Apple",
+          "name": "Audi R8",
           "quantity": 1,
-          "total": 60000002
+          "total": 20000300000
         }
       ],
-      "subtotal": 123183123125,
-      "address": "dsd",
-      "id": 1
-    },
-    {
-      "products": [
-        {
-          "name": "VAnh Tồ",
-          "quantity": 1,
-          "total": 123123123123
-        },
-        {
-          "name": "Apple",
-          "quantity": 1,
-          "total": 60000002
-        }
-      ],
-      "subtotal": 123183123125,
-      "address": "ds",
-      "id": 2
-    },
-    {
-      "products": [
-        {
-          "name": "VAnh Tồ",
-          "quantity": 1,
-          "total": 123123123123
-        },
-        {
-          "name": "Apple",
-          "quantity": 1,
-          "total": 60000002
-        }
-      ],
-      "subtotal": 123183123125,
+      "subtotal": 21000000000,
       "address": "Thanh Lãng",
-      "id": 3
+      "id": 7
     }
+
   ]
 }

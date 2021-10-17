@@ -5,8 +5,7 @@ import cartMini from "./Cart/listCart";
 
 const header = {
     render() {
-        const user = JSON.parse(localStorage.getItem('user'));
-
+        const user = isAuthenticated();
         const check = () => {
 
             if (user) {
@@ -55,6 +54,22 @@ const header = {
         </form>`
         }
         
+        const admin = () =>{
+            if (user) {
+                
+            
+            if (user.user.id == 1) {
+                return `<li>
+                <a href="/admin">Manager</a>
+            </li>`
+            }else{
+                return ``
+            }
+        
+        }else{
+            return ``
+        }
+        }
   
 
         return /*html*/ `
@@ -71,9 +86,7 @@ const header = {
                     <ul class="list-inline pull-right top-links">
                        
                         ${check()}
-                        <li>
-                            <a href="#">Wishlist</a>
-                        </li>
+                        ${admin()}
                         <li>
                             <a href="#">Checkout</a>
                         </li>

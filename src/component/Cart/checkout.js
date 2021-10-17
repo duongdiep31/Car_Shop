@@ -14,11 +14,9 @@ const listCheckout = {
             return `
             <tr class="cart-product">
             <td class="cart-product-item">
-                <div  data-id = "${item.id}" class="cart-product-remove">
-                    <i class="fa fa-close"></i>
-                </div>
-                <div class="cart-product-img">
-                    <img src="${item.image}" style="width:20%;height:30%;" alt="product" />
+              
+                <div style="width:20%" class="cart-product-img">
+                    <img src="${item.image}" style="width:100%;height:30%;" alt="product" />
                 </div>
                 <div class="cart-product-name">
                     <h6>${item.name}</h6>
@@ -34,6 +32,7 @@ const listCheckout = {
             </td>
             <td class="cart-product-total">${nf.format(totalPrice)}</td>
         </tr>
+
             `
         })   
         return items

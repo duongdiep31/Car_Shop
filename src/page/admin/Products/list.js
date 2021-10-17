@@ -1,12 +1,12 @@
-import { list } from "postcss";
-import { getAll, remove } from "../../api/productsapi";
-import Clistprd from "../../component/admin/Clisprd";
-import { clickLogout, reRender } from "../../utils";
+import Clistprd from "../../../component/admin/Clisprd";
+import { clickLogout, reRender } from "../../../utils";
 
 const productManagerPage = {
     async render() {
         return /*html*/ `
-
+        <div class="w-3/4 m-auto" style="padding-top:20px" > 
+            <a  href="#/admin">Control</a> / <span> List Products</span>
+        </div>
          <div id = "listprd" style = " padding:50px 0;">
 
             ${ await Clistprd.render()}

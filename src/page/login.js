@@ -1,7 +1,8 @@
 import instance from "../api/instance";
 import { signin } from "../api/user";
 import { $, authenticate,isAuthenticated, reRender  } from "../utils";
-import productManagerPage from "./admin/list";
+import admin from "./admin/Admin";
+import productManagerPage from "./admin/Products/list";
 import homepage from "./home";
 
 const login = {
@@ -73,10 +74,9 @@ const login = {
                 })
                 .then(() => {
                     if (isAuthenticated) {
-                        console.log(isAuthenticated().user.id);
                         if (isAuthenticated().user.id === 1) {
-                        reRender(productManagerPage)
-                        window.location.hash = "/list"
+                        reRender(admin)
+                        window.location.hash = "/admin"
                     } else {
                         reRender(homepage)
                         window.location.hash = "/"

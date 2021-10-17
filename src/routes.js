@@ -6,14 +6,22 @@ import footer from "./component/footer";
 import product from "./page/product";
 import productdetails from "./page/product-details";
 import categorydetails from "./page/category-details";
-import productManagerPage from "./page/admin/list";
-import creatproduct from "./page/admin/create-product";
-import changeProduct from "./page/admin/change-product";
+import productManagerPage from "./page/admin/Products/list";
+import creatproduct from "./page/admin/Products/create-product";
+import changeProduct from "./page/admin/Products/change-product";
 import register from "./page/register";
 import login from "./page/login";
 import Cart from "./page/Cart";
 import productSearch from "./page/productsSearch";
 import checkout from "./page/checkout";
+import admin from "./page/admin/Admin";
+import listcate from "./page/admin/categoryAdmin/listCate";
+import createCate from "./page/admin/categoryAdmin/create-cate";
+import changeCate from "./page/admin/categoryAdmin/change-cate";
+import listOrder from "./page/admin/order/listOrder";
+import changeStatus from "./page/admin/order/changeStatus";
+import vieworder from "./page/admin/order/vieworder";
+
 const router = new Navigo("/", { hash: true, linksSelector: "a" });
 const render = async(page, afterRender) => {
 
@@ -25,6 +33,7 @@ const render = async(page, afterRender) => {
     if (afterRender) {
         await afterRender();
     }
+
 }
 
 
@@ -46,20 +55,33 @@ const routes = () => {
         })
        .on("/register", () => render(register.render(), register.afterRender))
         .on("/login", () => {render(login.render(), login.afterRender)})
-        //admin
-        .on("/list", () => render(productManagerPage.render(), productManagerPage.afterRender))
-        .on("createprd", () => render(creatproduct.render(), creatproduct.afterRender))
-        .on("/cart", () => render(Cart.render(), Cart.afterRender))
+        .on("/search/:id",() => render(productSearch.render(),productSearch.afterRender))
+        .on("/checkout", () => render(checkout.render(),checkout.afterRender))
 
-        .on("/changePrd/:id", ({ data }) => {
+
+        //admin
+        .on("/admin/list", () => render(productManagerPage.render(), productManagerPage.afterRender))
+        .on("/admin/createprd", () => render(creatproduct.render(), creatproduct.afterRender))
+        .on("/cart", () => render(Cart.render(), Cart.afterRender))
+        
+        .on("/admin/changePrd/:id", ({ data }) => {
             const id = data.id;
             render(changeProduct.render(id), changeProduct.afterRender)
         })
-        .on("/search/:id",() => render(productSearch.render(),productSearch.afterRender))
-        .on("checkout", () => render(checkout.render(),checkout.afterRender))
+        .on("/admin/changecate/:id", ({ data }) => {
+            const id = data.id;
+            render(changeCate.render(id), changeCate.afterRender)
+        })
+        .on("/admin",() =>render(admin.render(),admin.afterRender))
+        .on("/admin/listcate", () => render(listcate.render(),listcate.afterRender) )
+        .on("/admin/createcate", () => render(createCate.render(), createCate.afterRender))
+        .on("/admin/listorder", () => render(listOrder.render(),listOrder.afterRender))
+        .on("/admin/changestatus/:id", ({data}) => render(changeStatus.render(data),changeStatus.afterRender))
+        .on("/admin/vieworder/:id",({data}) => render(vieworder.render(data),vieworder.afterRender))
         .notFound(() => {
             console.log("Not Found Page");
         })
+
         .resolve();
 }
 export default routes

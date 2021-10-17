@@ -3,7 +3,7 @@ export const getAll = () => {
     const url = '/orders'
     return instance.get(url)
 }
-export const getcate = (id) => {
+export const getorder = (id) => {
     const url = `/orders/${id}`;
     return instance.get(url)
 

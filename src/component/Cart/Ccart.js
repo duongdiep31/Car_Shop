@@ -10,15 +10,17 @@ const Ccart = {
                                             const nf = Intl.NumberFormat();
 
                                             return /*html*/ ` <tr class="cart-product">
-                                        <td class="cart-product-item">
-                                            <div  data-id = "${item.id}" class="cart-product-remove">
-                                                <i class="fa fa-close"></i>
-                                            </div>
-                                            <div class="cart-product-img">
-                                                <img src="${item.image}" style="width:20%;height:30%;" alt="product" />
+                                        <td   class="cart-product-item">
+                                           
+                                            <div style="width:112.69px" class="cart-product-img">
+                                                <img src="${item.image}" style="width:100%;height:30%;" alt="product" />
                                             </div>
                                             <div class="cart-product-name">
                                                 <h6>${item.name}</h6>
+                                            </div>
+
+                                             <div  data-id = "${item.id}" class="cart-product-remove">
+                                                <i class="fa fa-close"></i>
                                             </div>
                                         </td>
                                         <td class="cart-product-price">${nf.format(item.price)} VND</td>

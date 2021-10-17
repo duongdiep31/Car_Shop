@@ -41,7 +41,7 @@ const Cart = {
                         <table class="table table-bordered">
                             <thead>
                                 <tr class="cart-product">
-                                    <th class="cart-product-item">Product</th>
+                                    <th style="width:50%" class="cart-product-item">Product</th>
                                     <th class="cart-product-price">Price</th>
                                     <th class="cart-product-quantity">Quantity</th>
                                     <th class="cart-product-total">Total</th>
@@ -65,7 +65,7 @@ const Cart = {
                                             </div>
 
                                             <div class="col-xs-12 col-sm-6 col-md-6 text-right">
-                                                <a class="btn btn-secondary" href="#">update cart</a>
+                                                <a class="btn btn-secondary" href="#/products">update cart</a>
                                                 <a class="btn btn-primary" href="#/checkout">Proceed To Checkout</a>
                                             </div>
 
@@ -102,7 +102,6 @@ const Cart = {
     </section>`
     },
     afterRender() {
-        Ccart.afterRender()
   
         (function($) {
             "use strict";
@@ -203,6 +202,7 @@ const Cart = {
             var $heroSlider = $(".hero-slider");
             $heroSlider.slick({ dots: true, infinite: true, speed: 600, autoplay: false, autoplaySpeed: 2000, slidesToShow: 1, slidesToScroll: 1, variableWidth: false, arrows: true, prevArrow: '<div class="arrows arrow-prev"><i class="fa fa-angle-left"></i></div>', nextArrow: '<div class="arrows arrow-next"><i class="fa fa-angle-right"></i></div>', });
         }(jQuery));
+        Ccart.afterRender()
         
     }
 }

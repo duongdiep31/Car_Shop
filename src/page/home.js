@@ -1,3 +1,4 @@
+import header from "../component/header";
 import Banner from "../component/home/banner";
 import { clickLogout,search } from "../utils";
 

@@ -34,7 +34,6 @@ const cartMini = {
                 <p class="product-price">Price: ${nf.format(totalPrice)} </p>
                 <p class="product-quantity">Quantity: ${item.quantity}</p>
             </div>
-            <a class="cancel" href="#">cancel</a>
         </li>`
         }).join("")
         return /*html*/ `<div class="module module-cart pull-left">
