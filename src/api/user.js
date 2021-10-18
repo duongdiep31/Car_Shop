@@ -8,17 +8,13 @@ export const get = (id) => {
     return instance.get(url)
 
 }
-export const getcate = (cate) => {
-    const url = `/users/${cate}`;
-    return instance.get(url)
 
-}
 export const remove = (id) => {
     const url = `/users/${id}`;
     return instance.delete(url)
 }
-export const add = (product) => {
-    const url = `/users/`;
+export const signup = (product) => {
+    const url = `/users`;
     return instance.post(url, product)
 }
 

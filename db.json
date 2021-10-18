@@ -66,18 +66,40 @@
     {
       "email": "diep1234@gmail.com",
       "password": "$2a$10$Cg4otxWbGsC0fMvi3Cog7uEX8QGBxf7qlFlgmQpY60EsF1tNzLcNK",
+      "mission": "Admin",
       "user": "lucky@gmail.com",
       "id": 1
     },
     {
-      "email": "diep234@gmail.com",
-      "password": "$2a$10$Cg4otxWbGsC0fMvi3Cog7uEX8QGBxf7qlFlgmQpY60EsF1tNzLcNK",
-      "user": "lucky@gmail.com",
-      "id": 2
+      "email": "zenkyxz@gmail.com",
+      "password": "$2a$10$cWfHTvJxEHAhloi6yMgVAuOa/9yy8giP1Ww7PQDa0gD2MvpIiAMmG",
+      "user": "diep",
+      "id": 2,
+      "mission": "Product"
+    },
+    {
+      "email": "lucky@gmail.com",
+      "password": "$2a$10$PymJyi3cEL/X3DqyN/1fy.dEDuIDjABroxFqTLrs41FCw25uVii0m",
+      "user": "Dương Điệp",
+      "mission": "Order",
+      "id": 3
+    },
+    {
+      "email": "diep@gmail.com",
+      "password": "$2a$10$cRgsSVs0HKqntchU1cyk1OSw87JuIK2xKVeASd8WwqLgGLVAw/UVm",
+      "user": "dsds",
+      "mission": "guest",
+      "id": 4
+    },
+    {
+      "email": "diep@fpt.edu.vn",
+      "password": "$2a$10$awqUhLF0ffjiBa07MYbe.uT2U.6q7bg2dL03PtUNPgpPiq7kQ5Alu",
+      "user": "diep",
+      "mission": "guest",
+      "id": 5
     }
   ],
   "orders": [
-   
     {
       "name": "Dương Điệp",
       "phone": "0358282316",
@@ -98,6 +120,5 @@
       "address": "Thanh Lãng",
       "id": 7
     }
-
   ]
 }

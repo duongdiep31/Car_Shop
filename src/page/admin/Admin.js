@@ -1,7 +1,54 @@
-import { clickLogout } from "../../utils"
+import { clickLogout, isAuthenticated } from "../../utils"
 
 const admin = {
-    render(){
+    async render(){
+        const admin = await isAuthenticated()
+        const user = () =>{
+            if (admin.user.mission == "Admin") {
+                return /*html*/ `<div class="button" >
+                <a href="#/admin/listusers" class = "btn btn-primary" >
+                User
+             </a>
+                 </div>
+                 <div class="button" >
+                 <a href="#/admin/list" class = "btn btn-primary" >
+                         Product
+                 </a>
+                 </div>
+                     <div class="button" >
+                     <a href="#/admin/listcate" class = "btn btn-primary" >
+                     Category
+                 </a>
+                             </div>
+                         
+                 <div class="button" >
+                 <a href="#/admin/listorder" class = "btn btn-primary" >
+                         Order
+                 </a>
+                 </div>
+                 `
+            }else if (admin.user.mission == "Product") {
+                return ` 
+                <div class="button" >
+                <a href="#/admin/listcate" class = "btn btn-primary" >
+                Category
+            </a>
+                        </div>
+                <div class="button" >
+                <a href="#/admin/list" class = "btn btn-primary" >
+                        Product
+                </a>
+                </div>`
+            } else if (admin.user.mission == "Order") {
+                    return `   <div class="button" >
+                    <a href="#/admin/listorder" class = "btn btn-primary" >
+                            Order
+                    </a>
+                    </div>`
+            } {
+                return ``
+            }
+        }
         return /*html*/ `
         <style>
             .button{
@@ -13,26 +60,8 @@ const admin = {
         <h1 style = "font-size:50px ;text-align:center;
         ">Control</h1>
         <div  style="text-align: center;" >
-        <div class="button" >
-        <a href="#/admin/list" class = "btn btn-primary" >
-                Product
-        </a>
-        </div>
-        <div class="button" >
-        <a href="#/admin/listcate" class = "btn btn-primary" >
-        Category
-    </a>
-    </div>
-    <div class="button" >
-    <a class = "btn btn-primary" >
-                User
-        </a>
-        </div>
-        <div class="button" >
-        <a href="#/admin/listorder" class = "btn btn-primary" >
-                Order
-        </a>
-        <div>
+                
+                ${user()}
         </div>
         </div>
         `

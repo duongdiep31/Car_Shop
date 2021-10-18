@@ -74,12 +74,12 @@ const login = {
                 })
                 .then(() => {
                     if (isAuthenticated) {
-                        if (isAuthenticated().user.id === 1) {
-                        reRender(admin)
-                        window.location.hash = "/admin"
-                    } else {
+                        if (isAuthenticated().user.mission === "khách") {
                         reRender(homepage)
                         window.location.hash = "/"
+                    } else {
+                        reRender(admin)
+                        window.location.hash = "/admin"
                     }
                     }
                     

@@ -21,6 +21,8 @@ import changeCate from "./page/admin/categoryAdmin/change-cate";
 import listOrder from "./page/admin/order/listOrder";
 import changeStatus from "./page/admin/order/changeStatus";
 import vieworder from "./page/admin/order/vieworder";
+import listUsers from "./page/user/listUsers";
+import missionuser from "./page/user/missionUser";
 
 const router = new Navigo("/", { hash: true, linksSelector: "a" });
 const render = async(page, afterRender) => {
@@ -78,6 +80,8 @@ const routes = () => {
         .on("/admin/listorder", () => render(listOrder.render(),listOrder.afterRender))
         .on("/admin/changestatus/:id", ({data}) => render(changeStatus.render(data),changeStatus.afterRender))
         .on("/admin/vieworder/:id",({data}) => render(vieworder.render(data),vieworder.afterRender))
+        .on("/admin/listusers", ()=>render(listUsers.render(),listUsers.afterRender))
+        .on("/admin/missionuser/:id",({data}) => render(missionuser.render(data), missionuser.afterRender) )
         .notFound(() => {
             console.log("Not Found Page");
         })

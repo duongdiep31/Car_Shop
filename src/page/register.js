@@ -1,4 +1,5 @@
-import { add } from "../api/user";
+import instance from "../api/instance";
+import { signup } from "../api/user";
 import { $, reRender } from "../utils";
 import login from "./login";
 
@@ -53,20 +54,23 @@ const register = {
     },
     afterRender() {
         const btns = document.querySelector("#signup");
-        btns.addEventListener("submit", async(e) => {
+        btns.addEventListener("submit", async (e) => {
                 e.preventDefault();
                 const users = {
                     user: $("#username").value,
-
+                    mission: "guest",
                     email: $("#email").value,
                     password: $("#pwd").value,
                 }
-                await add(users)
+                const url = "users"
+                await signup(users)
                 reRender(login)
                 window.location.hash = '/login';
 
 
             })
+         
+
             (function($) {
                 "use strict";
                 var $dropToggle = $("ul.dropdown-menu [data-toggle=dropdown]"),
@@ -131,7 +135,7 @@ const register = {
                     twitterID = '721372281637888000';
                 if (twitterFeed.length > 0) {
                     var twitterConfig = { "id": twitterID, "domId": 'twitter-feed', "maxTweets": 2, "showUser": false, "showTime": true, "showRetweet": false, "showInteraction": false, "enableLinks": true, "customCallback": handleTweets, "dateFunction": momentDateFormatter, };
-
+    
                     function handleTweets(tweets) {
                         var x = tweets.length;
                         var n = 0;
@@ -144,7 +148,7 @@ const register = {
                         html += '</ul>';
                         element.innerHTML = html;
                     }
-
+    
                     function momentDateFormatter(date, dateString) { return moment(dateString).fromNow(); }
                     twitterFetcher.fetch(twitterConfig);
                 }
@@ -166,8 +170,7 @@ const register = {
                 var $heroSlider = $(".hero-slider");
                 $heroSlider.slick({ dots: true, infinite: true, speed: 600, autoplay: false, autoplaySpeed: 2000, slidesToShow: 1, slidesToScroll: 1, variableWidth: false, arrows: true, prevArrow: '<div class="arrows arrow-prev"><i class="fa fa-angle-left"></i></div>', nextArrow: '<div class="arrows arrow-next"><i class="fa fa-angle-right"></i></div>', });
             }(jQuery));
-
-
+    
 
     }
 }
