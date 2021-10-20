@@ -1,5 +1,5 @@
 import ClistUsers from "../../component/admin/users/Clistusers"
-import { clickLogout } from "../../utils"
+import { clickLogout, search } from "../../utils"
 
 const listUsers = {
     async render(){
@@ -13,6 +13,7 @@ const listUsers = {
     },
      async afterRender(){
         clickLogout()
+        search()
         await ClistUsers.afterRender()
     }
 }

@@ -6,9 +6,9 @@ import productscomponent from "../component/productscomponent";
 import { clickLogout, parseRequestUrl, search } from "../utils";
 const productSearch = {
     async render() {
-        const {id} = parseRequestUrl();
-        console.log(id);
-        const {data} = await searchprd(id)
+        const {search} = parseRequestUrl();
+        console.log(search);
+        const {data} = await searchprd(search)
         console.log(data);
          const result =  data.map(item => {
             const nf = Intl.NumberFormat();

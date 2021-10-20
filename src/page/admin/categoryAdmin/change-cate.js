@@ -1,6 +1,6 @@
 import { getcate, update } from "../../../api/categoryapi"
 import Clistcate from "../../../component/admin/Clistcate";
-import { parseRequestUrl, reRender } from "../../../utils";
+import { clickLogout, parseRequestUrl, reRender, search } from "../../../utils";
 
 const changeCate = {
     async render(id){
@@ -20,6 +20,8 @@ const changeCate = {
       </form>`
     },
     async afterRender(){
+      clickLogout()
+      search()
       const btn = document.querySelector("#addprd");
       btn.addEventListener('submit', async (e) => {
         e.preventDefault();

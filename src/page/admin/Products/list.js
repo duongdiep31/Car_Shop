@@ -1,5 +1,5 @@
 import Clistprd from "../../../component/admin/Clisprd";
-import { clickLogout, reRender } from "../../../utils";
+import { clickLogout, reRender, search } from "../../../utils";
 
 const productManagerPage = {
     async render() {
@@ -16,6 +16,7 @@ const productManagerPage = {
     },
     async afterRender() {
         clickLogout()
+        search()
 
         return `${ await Clistprd.afterRender()}`
     }

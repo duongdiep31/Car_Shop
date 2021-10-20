@@ -1,5 +1,5 @@
 import Clistcate from "../../../component/admin/Clistcate"
-import { clickLogout } from "../../../utils";
+import { clickLogout, search } from "../../../utils";
 
 const listcate = {
     async render(){
@@ -15,6 +15,7 @@ const listcate = {
     },
     async afterRender(){
         clickLogout();
+        search()
         await Clistcate.afterRender();
     }
 }

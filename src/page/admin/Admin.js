@@ -1,4 +1,4 @@
-import { clickLogout, isAuthenticated } from "../../utils"
+import { clickLogout, isAuthenticated, search } from "../../utils"
 
 const admin = {
     async render(){
@@ -68,6 +68,9 @@ const admin = {
     },
     afterRender(){
         clickLogout();
+        search()
+        
+     
     }
 }
 export default admin

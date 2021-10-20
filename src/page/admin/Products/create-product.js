@@ -3,7 +3,7 @@ import { add } from "../../../api/productsapi";
 import Clistprd from "../../../component/admin/Clisprd";
 import '../../../firebase'
 import { getStorage, ref, uploadBytes, getDownloadURL, uploadBytesResumable } from "@firebase/storage";
-import { $, clickLogout, reRender } from "../../../utils";
+import { $, clickLogout, reRender, search } from "../../../utils";
 const creatproduct = {
     async render() {
         const { data } = await getAll();
@@ -43,6 +43,7 @@ const creatproduct = {
     },
     afterRender() {
         clickLogout();
+        search()
         const btns = document.querySelector("#addprd");
         btns.addEventListener('submit', (e) => {
             e.preventDefault();

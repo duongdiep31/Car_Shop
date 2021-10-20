@@ -1,6 +1,6 @@
 import { getorder } from "../../../api/orders"
 import Cvieworder from "../../../component/admin/order/Cvieworder"
-import { parseRequestUrl } from "../../../utils"
+import { clickLogout, parseRequestUrl, search } from "../../../utils"
 
 const vieworder = {
     async render(){
@@ -50,6 +50,9 @@ const vieworder = {
 
 
     },
-    afterRender(){}
+    afterRender(){
+        clickLogout()
+        search()
+    }
 }
 export default vieworder

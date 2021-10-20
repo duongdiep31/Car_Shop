@@ -1,17 +1,22 @@
 import { addcheckout } from "../api/orders";
+import { vietnam } from "../api/vietnam";
 import { getCartItem } from "../cart"
 import listCheckout from "../component/Cart/checkout";
-import { reRender } from "../utils";
+import { clickLogout, reRender, search } from "../utils";
 import homepage from "./home";
 
 const checkout = {
-    render(){
-                    const data = getCartItem();
+    async render(){
+                     const data = getCartItem();
                     const nf = Intl.NumberFormat();
                     const subtotal = data.reduce((a, b) => a + b.price * b.quantity, 0)
                     const tax = 300000
                     const orderTotal = subtotal + tax
-
+                    const result = await vietnam() .then(response => {
+                        const data = response.data;
+                        return `<option> ${data.name} </option>`
+                    })
+                    console.log(result);
         return /*html*/ `
             <div style="margin:auto; padding:40px 40px"  class="cart-table table-responsive  ">
                 <table class="table table-bordered">
@@ -24,8 +29,9 @@ const checkout = {
                         </tr>
                     </thead>
                     <tbody id="tbody">
+                      
 
-
+                   
                         ${ listCheckout.render()
                         }
 
@@ -73,6 +79,8 @@ const checkout = {
         `
     },
     afterRender(){
+        clickLogout()
+        search()
         const btn = document.querySelector("#checkout");
         btn.addEventListener('submit',  (e) => {
           

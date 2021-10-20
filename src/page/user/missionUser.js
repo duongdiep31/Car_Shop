@@ -1,6 +1,6 @@
 import { get, update } from "../../api/user";
 import ClistUsers from "../../component/admin/users/Clistusers";
-import { clickLogout, parseRequestUrl, reRender } from "../../utils";
+import { clickLogout, parseRequestUrl, reRender, search } from "../../utils";
 
 const missionuser = {
     async  render(){
@@ -26,7 +26,8 @@ const missionuser = {
          `
      }
      ,afterRender(){
-         clickLogout
+         clickLogout()
+         search()
          const btn = document.querySelector("#form-status");
          btn.addEventListener('submit',async (e) =>{
              const {id} = parseRequestUrl();

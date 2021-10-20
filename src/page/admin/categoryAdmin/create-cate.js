@@ -1,6 +1,6 @@
 import { add } from "../../../api/categoryapi";
 import Clistcate from "../../../component/admin/Clistcate";
-import { reRender } from "../../../utils";
+import { clickLogout, reRender, search } from "../../../utils";
 
 const createCate = {
     render(){
@@ -20,6 +20,8 @@ const createCate = {
     }
     
     ,afterRender(){
+      clickLogout()
+      search()
         const btns = document.querySelector("#addprd");
         btns.addEventListener('submit', (e) => {
             e.preventDefault();

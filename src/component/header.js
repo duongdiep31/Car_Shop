@@ -58,7 +58,7 @@ const header = {
             if (user) {
                 
             
-            if (user.user.id == 1) {
+            if (user.user.mission == "Admin" || user.user.mission == "Product" || user.user.mission == "Order") {
                 return `<li>
                 <a href="/admin">Manager</a>
             </li>`
@@ -87,12 +87,7 @@ const header = {
                        
                         ${check()}
                         ${admin()}
-                        <li>
-                            <a href="#">Checkout</a>
-                        </li>
-                        <li>
-                            <a href="#">Stores</a>
-                        </li>
+                      
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">English <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">

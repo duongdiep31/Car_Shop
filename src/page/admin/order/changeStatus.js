@@ -1,6 +1,6 @@
 import { getorder, update } from "../../../api/orders";
 import Clistorder from "../../../component/admin/order/Clistorder";
-import { clickLogout, parseRequestUrl, reRender } from "../../../utils"
+import { clickLogout, parseRequestUrl, reRender, search } from "../../../utils"
 
 const changeStatus = {
    async  render(){
@@ -26,6 +26,7 @@ const changeStatus = {
     }
     ,afterRender(){
         clickLogout();
+        search()
         const btn = document.querySelector("#form-status");
         btn.addEventListener('submit',async (e) =>{
             const {id} = parseRequestUrl();

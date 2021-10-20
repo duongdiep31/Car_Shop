@@ -17,8 +17,11 @@ export const parseRequestUrl = () => {
     const request = url.split('/');
     return {
         id: request[3],
+        search : request[2],
+        rom : request[2]
     }
 }
+
 
 export const authenticate = (user) => {
     if (typeof window === 'undefined') return false

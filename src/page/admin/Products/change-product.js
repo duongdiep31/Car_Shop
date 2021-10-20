@@ -1,7 +1,7 @@
 import { getAll, getcate } from "../../../api/categoryapi";
 import {get, update } from "../../../api/productsapi";
 import Clistprd from "../../../component/admin/Clisprd";
-import { clickLogout, parseRequestUrl, reRender } from "../../../utils";
+import { clickLogout, parseRequestUrl, reRender, search } from "../../../utils";
 import { getStorage, ref, uploadBytes, getDownloadURL, uploadBytesResumable } from "@firebase/storage";
 
 const changeProduct = {
@@ -54,6 +54,7 @@ const changeProduct = {
     },
     async afterRender() {
         clickLogout();
+        search()
         const btns = document.querySelector("#addprd");
         btns.addEventListener('submit', async(e) => {
             e.preventDefault();

@@ -1,5 +1,5 @@
 import Clistorder from "../../../component/admin/order/Clistorder"
-import { clickLogout } from "../../../utils"
+import { clickLogout, search } from "../../../utils"
 
 const listOrder = {
     async render(){
@@ -14,6 +14,7 @@ const listOrder = {
         `
     },afterRender(){
         clickLogout();
+        search()
     }
 }
 export default listOrder

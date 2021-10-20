@@ -2,7 +2,7 @@ import CBrands from "../component/brands";
 import categorycomponent from "../component/categories/category";
 import Ccategories from "../component/categories/products-cate";
 import { getAll, getcate } from "../api/productsapi";
-import { clickLogout } from "../utils";
+import { clickLogout, search } from "../utils";
 const categorydetails = {
     async render(id) {
 
@@ -375,6 +375,7 @@ const categorydetails = {
             $heroSlider.slick({ dots: true, infinite: true, speed: 600, autoplay: false, autoplaySpeed: 2000, slidesToShow: 1, slidesToScroll: 1, variableWidth: false, arrows: true, prevArrow: '<div class="arrows arrow-prev"><i class="fa fa-angle-left"></i></div>', nextArrow: '<div class="arrows arrow-next"><i class="fa fa-angle-right"></i></div>', });
         }(jQuery));
         clickLogout();
+        search()
     }
 
 }
